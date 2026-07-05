@@ -1,4 +1,4 @@
-# AccessGraph — Query Contract (Person 3 ↔ Person 2 ↔ Person 1)
+# AccessBot — Query Contract (Person 3 ↔ Person 2 ↔ Person 1)
 
 The interface between the G-Brain Access Graph (Person 3), the
 `task_access_assistant` skill (Person 2), and the UI (Person 1). This is locked —

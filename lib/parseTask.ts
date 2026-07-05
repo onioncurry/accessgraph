@@ -1,4 +1,4 @@
-// AccessGraph — reference task parser (Person 3 stub; Person 2 owns the real one)
+// AccessBot — reference task parser (Person 3 stub; Person 2 owns the real one)
 //
 // Turns a raw Slack/Teams message (EN or JA) into a TaskInput for
 // resolveAccess(). Heuristic on purpose — Person 2's skill replaces this with
@@ -13,7 +13,7 @@ import type { Graph, TaskInput } from "./types.ts";
 // --- mention trigger ---------------------------------------------------------
 // The bot activates ONLY when mentioned. Person 1's front door checks
 // isTriggered() first; parseTask() strips the mention so it never pollutes
-// assignee/keyword matching. Accepts @AccessBot / @AccessGraph / <@U123> style.
+// assignee/keyword matching. Accepts @AccessBot / @AccessBot / <@U123> style.
 export const BOT_MENTION = /(@access(bot|graph)\b|<@[A-Z0-9]+>)/gi;
 
 export function isTriggered(text: string): boolean {

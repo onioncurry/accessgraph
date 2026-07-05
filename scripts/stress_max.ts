@@ -1,4 +1,4 @@
-// AccessGraph — MAXIMUM-intensity stress suite with scoring (Person 3)
+// AccessBot — MAXIMUM-intensity stress suite with scoring (Person 3)
 //   node scripts/stress_max.ts
 //
 // Goes beyond scripts/stress_test.ts: seeded fuzzing, permutation determinism,

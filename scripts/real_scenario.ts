@@ -1,4 +1,4 @@
-// AccessGraph — REAL-DATA scenario runner (Crustdata live)
+// AccessBot — REAL-DATA scenario runner (Crustdata live)
 //
 //   node scripts/real_scenario.ts [company_domain]      # default stripe.com
 //   node scripts/real_scenario.ts --cached               # offline (committed fetch)

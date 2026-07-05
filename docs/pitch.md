@@ -1,6 +1,6 @@
-# AccessGraph — Pitch (c0mpiled hackathon, July 5 2026)
+# AccessBot — Pitch (c0mpiled hackathon, July 5 2026)
 
-> **AccessGraph is a G-Brain skill that turns a Slack/Teams task into a
+> **AccessBot is a G-Brain skill that turns a Slack/Teams task into a
 > minimum access package for humans and AI agents.**
 
 ## Problem
@@ -15,7 +15,7 @@ permission requirements, safe agent automation inside a company is impossible.
 
 ## Solution
 
-When a task is assigned, AccessGraph reads it, queries the G-Brain access
+When a task is assigned, AccessBot reads it, queries the G-Brain access
 graph (people, resources, ownership, current access, policies, past tasks),
 and returns the **least-privilege access package**: what's needed, at what
 level, for how long, who approves — as a one-click Slack card for humans and

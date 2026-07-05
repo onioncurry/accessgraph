@@ -1,10 +1,10 @@
-// AccessGraph — document registration (Person 3)
+// AccessBot — document registration (Person 3)
 //
 // When a document is FINISHED, it gets registered into the G-Brain catalog —
 // regardless of whether it has been shared. Two axes: category (type) ×
 // project. Only METADATA + a one-line summary enter the brain, never the
 // content: everyone can discover that a document exists; reading it still
-// requires access, which AccessGraph then resolves as a least-privilege request.
+// requires access, which AccessBot then resolves as a least-privilege request.
 //
 //   registerDocument(input, graph)  -> { resource, page, category }
 //   classifyCategory(input)         -> auto category (explicit input wins)

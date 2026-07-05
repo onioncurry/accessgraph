@@ -1,4 +1,4 @@
-// AccessGraph — CLI demo harness (Person 3)
+// AccessBot — CLI demo harness (Person 3)
 //
 //   node scripts/query.ts                          # hero task from task_examples.json
 //   node scripts/query.ts "Help Rei continue the product progress"   # RAW TEXT (design-doc pipeline)
@@ -28,7 +28,7 @@ function printCard(pkg: AccessPackage): void {
   }
   const t = pkg.task;
   const s = pkg.summary!;
-  console.log(`\n  AccessGraph — ${t.assignee} · ${t.project || "no project"} · intent: ${t.intent}`);
+  console.log(`\n  AccessBot — ${t.assignee} · ${t.project || "no project"} · intent: ${t.intent}`);
   console.log(`  Found ${s.resources_found} resources · ${s.missing} missing · ${s.already_has} already · ${s.blocked} blocked\n`);
 
   const icon: Record<string, string> = { missing: "[x]", has_access: "[v]", blocked: "[!]" };

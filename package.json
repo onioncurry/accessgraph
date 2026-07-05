@@ -2,7 +2,7 @@
   "name": "accessgraph",
   "version": "0.1.0",
   "private": true,
-  "description": "AccessGraph — a GStack skill that uses G-Brain to turn a Slack/Teams task into a minimum access package for humans and AI agents.",
+  "description": "AccessBot — a GStack skill that uses G-Brain to turn a Slack/Teams task into a minimum access package for humans and AI agents.",
   "type": "module",
   "engines": {
     "node": ">=23.6"

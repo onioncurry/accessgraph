@@ -1,5 +1,5 @@
 {
-  "$comment": "AccessGraph company knowledge — access policies per resource_type. Owner: Person 3. read/write_intent_permission = least-privilege level for the intent; approver_rule resolves who approves; never_auto_grant marks confidential data that is blocked unless the task explicitly justifies it.",
+  "$comment": "AccessBot company knowledge — access policies per resource_type. Owner: Person 3. read/write_intent_permission = least-privilege level for the intent; approver_rule resolves who approves; never_auto_grant marks confidential data that is blocked unless the task explicitly justifies it.",
   "policies": [
     {
       "resource_type": "product_doc",

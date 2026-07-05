@@ -6,10 +6,10 @@ description: >
   the G-Brain access graph (people, resources, ownership, current access,
   policies), and returns least-privilege access recommendations with approvers
   as strict JSON. Trigger on: a task being assigned to someone ("can you take
-  this", "help X move Y forward", "@AccessGraph"), or any request like "what
+  this", "help X move Y forward", "@AccessBot"), or any request like "what
   access does X need for this task".
 version: 1.0.0
-authors: AccessGraph team (c0mpiled hackathon, RFS: Company Brain / Software for Agents)
+authors: AccessBot team (c0mpiled hackathon, RFS: Company Brain / Software for Agents)
 requires:
   - gbrain MCP (search, get_page, get_links) OR the accessgraph repo checkout
 ---

@@ -1,4 +1,4 @@
-// AccessGraph — access graph engine over the mock company data (Person 3)
+// AccessBot — access graph engine over the mock company data (Person 3)
 //
 // This is the company knowledge layer: people, resources, ownership, current
 // access state, and policies — plus resolveAccess(), which turns a parsed task

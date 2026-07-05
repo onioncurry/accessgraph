@@ -1,4 +1,4 @@
-// AccessGraph — shared types (Person 3)
+// AccessBot — shared types (Person 3)
 // Contract between the G-Brain access graph (Person 3), the
 // task_access_assistant skill (Person 2), and the UI (Person 1).
 

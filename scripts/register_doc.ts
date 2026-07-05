@@ -1,4 +1,4 @@
-// AccessGraph — register a finished document into the G-Brain catalog (Person 3)
+// AccessBot — register a finished document into the G-Brain catalog (Person 3)
 //
 //   node scripts/register_doc.ts --title "Phoenix Launch Checklist" \
 //     --system "Google Docs" --owner shota_gushima --project phoenix \

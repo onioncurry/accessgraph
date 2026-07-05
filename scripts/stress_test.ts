@@ -1,4 +1,4 @@
-// AccessGraph — adversarial stress test (Person 3)
+// AccessBot — adversarial stress test (Person 3)
 // Goal: break resolveAccess(). Every case encodes a rule the service MUST hold.
 //   node scripts/stress_test.ts
 

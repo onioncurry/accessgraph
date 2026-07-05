@@ -1,4 +1,4 @@
-// AccessGraph — INTEGRATION stress suite: Person 1 (UI) + Person 2 (parser/skill)
+// AccessBot — INTEGRATION stress suite: Person 1 (UI) + Person 2 (parser/skill)
 // + cross-layer contract drift. Complements stress_test.ts (P3 core) and
 // stress_max.ts (P3 adversarial).
 //   node scripts/stress_integration.ts
@@ -64,7 +64,7 @@ section("P2-A PARSER ACCURACY — labeled JA/EN task messages", 25);
 // ---------------------------------------------------------------------------
 section("P2-M MENTION TRIGGER — bot activates ONLY when mentioned", 10);
 {
-  check("M1 @AccessBot / @AccessGraph / <@U123> all trigger; plain text does NOT", () => {
+  check("M1 @AccessBot / @AccessBot / <@U123> all trigger; plain text does NOT", () => {
     assert(isTriggered("@AccessBot help Rei"), "@AccessBot missed");
     assert(isTriggered("please @accessgraph this task"), "@accessgraph missed");
     assert(isTriggered("hey <@U0AGENT123> take a look"), "Slack-style <@id> missed");

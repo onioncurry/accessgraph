@@ -1,4 +1,4 @@
-# AccessGraph — 90-second demo script
+# AccessBot — 90-second demo script
 
 ## The problem (10s)
 > "Work gets assigned in Slack. But access lives in ten tools — Docs, Jira,
@@ -12,7 +12,7 @@ Normally: *"I can't open the roadmap… I don't have the Figma… who owns PROD-
 
 ## After — the live demo (40s)
 Show the **"Auto-share for this task"** panel appearing next to the DM:
-- AccessGraph parsed the task and queried **G-Brain** — found the **5 resources** it touches.
+- AccessBot parsed the task and queried **G-Brain** — found the **5 resources** it touches.
 - Rei is missing **all 5** → one click: **Share all (5)**.
 - Point at the permissions — **least privilege, per resource**:
   - Product Brief → **viewer** (she reads it)
@@ -38,7 +38,7 @@ gbrain search "product progress stuck onboarding roadmap"
 ```
 
 ## The one-liner (5s)
-> "AccessGraph is a GStack skill that uses G-Brain to turn a Slack task into a
+> "AccessBot is a GStack skill that uses G-Brain to turn a Slack task into a
 > minimum access package for humans and AI agents."
 
 ---

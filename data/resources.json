@@ -1,5 +1,5 @@
 {
-  "$comment": "AccessGraph company knowledge — resources, ownership, and CURRENT access state. Owner: Person 3. The 5 phoenix resources match the demo UI ('Auto-share for this task' panel). Rei is missing all 5 -> 'Share all (5)'.",
+  "$comment": "AccessBot company knowledge — resources, ownership, and CURRENT access state. Owner: Person 3. The 5 phoenix resources match the demo UI ('Auto-share for this task' panel). Rei is missing all 5 -> 'Share all (5)'.",
   "resources": [
     {
       "id": "product-brief",

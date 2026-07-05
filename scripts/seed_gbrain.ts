@@ -1,4 +1,4 @@
-// AccessGraph — G-Brain seeder (Person 3)
+// AccessBot — G-Brain seeder (Person 3)
 //
 // Turns data/*.json into one markdown page per entity (people + resources)
 // with structured frontmatter, written to gbrain_pages/. Page bodies are
@@ -157,8 +157,8 @@ for (const t of graph.tasks || []) {
 
 // --- the decision rules page (how the resolver combines everything) ------------
 const rulesBody =
-  fm({ type: "policy", id: "access-decision-rules", title: "AccessGraph decision rules" }) +
-  `\n# AccessGraph decision rules
+  fm({ type: "policy", id: "access-decision-rules", title: "AccessBot decision rules" }) +
+  `\n# AccessBot decision rules
 
 How a task becomes a minimum access package:
 

@@ -1,4 +1,4 @@
-// AccessGraph — Crustdata real-data demo (Person 3, deliverable)
+// AccessBot — Crustdata real-data demo (Person 3, deliverable)
 //
 // Proves the G-Brain people layer is not hand-written JSON: it can be built
 // from a real enrichment source. Pulls a REAL company + REAL employees from
@@ -148,7 +148,7 @@ writeFileSync(
 
 const md = `# Crustdata real-data demo — deliverable
 
-**Claim:** AccessGraph's G-Brain layer is not a hand-written mock. The people
+**Claim:** AccessBot's G-Brain layer is not a hand-written mock. The people
 graph can be built from a live enrichment API and the same skill resolves
 access on it unchanged.
 
@@ -195,7 +195,7 @@ domain: ${DOMAIN}
 
 # ${company.company_name} — live enrichment
 
-${company.company_name}, HQ ${company.headquarters}, ${company.employee_count_range} employees, founded ${String(company.year_founded).slice(0, 4)}. ${total} product-role employees matched via Crustdata person search. The AccessGraph people layer for this company can be generated automatically — see scripts/crustdata_demo.ts.
+${company.company_name}, HQ ${company.headquarters}, ${company.employee_count_range} employees, founded ${String(company.year_founded).slice(0, 4)}. ${total} product-role employees matched via Crustdata person search. The AccessBot people layer for this company can be generated automatically — see scripts/crustdata_demo.ts.
 `;
 writeFileSync(join(root, "gbrain_pages", "crustdata-company.md"), companyPage);
 

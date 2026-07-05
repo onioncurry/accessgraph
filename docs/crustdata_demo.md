@@ -1,6 +1,6 @@
 # Crustdata real-data demo — deliverable
 
-**Claim:** AccessGraph's G-Brain layer is not a hand-written mock. The people
+**Claim:** AccessBot's G-Brain layer is not a hand-written mock. The people
 graph can be built from a live enrichment API and the same skill resolves
 access on it unchanged.
 

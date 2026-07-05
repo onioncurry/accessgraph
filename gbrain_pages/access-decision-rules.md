@@ -1,10 +1,10 @@
 ---
 type: policy
 id: access-decision-rules
-title: AccessGraph decision rules
+title: AccessBot decision rules
 ---
 
-# AccessGraph decision rules
+# AccessBot decision rules
 
 How a task becomes a minimum access package:
 

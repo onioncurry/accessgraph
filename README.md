@@ -12,6 +12,38 @@ RFS fit: **Company Brain** (structured company knowledge) × **Software for
 Agents** (machine-readable access requirements before an agent acts) ×
 **Dynamic Software Interfaces** (per-task access UI generated in the flow of work).
 
+## 📎 One-click links (everything opens in the browser)
+
+| | |
+|---|---|
+| ▶ **Interactive demo** | https://onioncurry.github.io/accessgraph/demo/slack-demo.html |
+| 📊 **Pitch deck** | [AccessBot - Pitch Deck.pptx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fdocs%2FAccessBot%2520-%2520Pitch%2520Deck.pptx) |
+| 📄 **Pitch (text)** | [docs/pitch.md](https://github.com/onioncurry/accessgraph/blob/main/docs/pitch.md) |
+| 🧠 **The skill itself** | [skills/task_access_assistant/SKILL.md](https://github.com/onioncurry/accessgraph/blob/main/skills/task_access_assistant/SKILL.md) |
+| 🔬 **Real-data evidence** | [Crustdata run](https://github.com/onioncurry/accessgraph/blob/main/docs/crustdata_demo.md) · [real scenario](https://github.com/onioncurry/accessgraph/blob/main/docs/real_scenario_run.md) · [Mode B proof](https://github.com/onioncurry/accessgraph/blob/main/docs/mode_b_run.md) |
+| 🛡 **Test suites (100+ cases)** | [core](https://github.com/onioncurry/accessgraph/blob/main/scripts/stress_test.ts) · [adversarial](https://github.com/onioncurry/accessgraph/blob/main/scripts/stress_max.ts) · [integration](https://github.com/onioncurry/accessgraph/blob/main/scripts/stress_integration.ts) |
+
+<details>
+<summary>📁 <b>Company drive — open any file in one click</b> (Office files render via the Microsoft online viewer)</summary>
+
+- [2026 Hiring Plan.xlsx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2F2026%2520Hiring%2520Plan.xlsx)
+- [Brand Guidelines v3.docx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FBrand%2520Guidelines%2520v3.docx)
+- [Company Handbook.docx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FCompany%2520Handbook.docx)
+- [Customer Accounts.xlsx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FCustomer%2520Accounts.xlsx)
+- [Incident Response Runbook.docx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FIncident%2520Response%2520Runbook.docx)
+- [Interview Notes - Design Lead Candidate.docx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FInterview%2520Notes%2520-%2520Design%2520Lead%2520Candidate.docx)
+- [Market Research - Competitor Scan.json](https://github.com/onioncurry/accessgraph/blob/main/company_drive/Market%20Research%20-%20Competitor%20Scan.json)
+- [Onboarding Flow v2 - Design Notes.docx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FOnboarding%2520Flow%2520v2%2520-%2520Design%2520Notes.docx)
+- [PROD-1327 - Bug Report.docx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FPROD-1327%2520-%2520Bug%2520Report.docx)
+- [Phoenix Launch Deck.pptx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FPhoenix%2520Launch%2520Deck.pptx)
+- [Project Phoenix - Product Brief.docx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FProject%2520Phoenix%2520-%2520Product%2520Brief.docx)
+- [Q2 Board Update.pptx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FQ2%2520Board%2520Update.pptx)
+- [Q2 Payroll.xlsx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FQ2%2520Payroll.xlsx)
+- [Q2 Roadmap & Milestones.xlsx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FQ2%2520Roadmap%2520%2526%2520Milestones.xlsx)
+- [Q2 Sales Pipeline Review.pptx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fonioncurry%2Faccessgraph%2Fmain%2Fcompany_drive%2FQ2%2520Sales%2520Pipeline%2520Review.pptx)
+
+</details>
+
 ## Demo scenario (matches the UI mock)
 
 Shota DMs Rei: *"Can you take this task over? Product progress is stuck."*

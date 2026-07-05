@@ -1,5 +1,8 @@
 # AccessGraph
 
+**▶ [Open the interactive demo](https://onioncurry.github.io/accessgraph/demo/slack-demo.html)** — no install, runs in the browser.
+(Full live engine — card driven by the real parser/resolver — needs a clone + `npm run serve:demo`, Node ≥ 23.6.)
+
 > Work is assigned in Slack/Teams, but access lives across ten tools.
 > **AccessGraph** uses **G-Brain** to understand the company's people, resources,
 > and permissions, then generates the **minimum access package** required to

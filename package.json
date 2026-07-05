@@ -14,6 +14,7 @@
     "demo:blocked": "node scripts/query.ts --example confidential-blocked",
     "seed:gbrain": "node scripts/seed_gbrain.ts",
     "demo:crustdata": "node scripts/crustdata_demo.ts",
-    "test": "node scripts/stress_test.ts"
+    "test": "node scripts/stress_test.ts",
+    "test:max": "node scripts/stress_max.ts"
   }
 }

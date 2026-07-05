@@ -248,11 +248,23 @@ function buildReason(
   return `Needed to ${verb}${role} for ${scope}: "${resource.title}" (${resource.system}).${upgrade}`;
 }
 
+// Names can originate from EXTERNAL sources (e.g. Crustdata enrichment), so the
+// outbound message sink strips injection-capable characters (markdown, mentions,
+// control chars) — display text only, never markup.
+function safeName(s: string | null | undefined, fallback = "there"): string {
+  const clean = String(s ?? "")
+    .replace(/[`\[\]<>|*_~\n\r@#]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 60);
+  return clean || fallback;
+}
+
 function buildRequestMessage(line: AccessLine, assignee: Person, intent: string): string {
   const perm = capitalize(line.recommended_permission);
   const dur = line.duration && line.duration !== "none" ? ` for ${line.duration}` : "";
-  const approverFirst = (line.approver || "there").split(" ")[0];
-  return `Hi ${approverFirst}, ${assignee.name} needs ${perm} access to "${line.resource}" (${line.system})${dur} to help with ${humanIntent(intent)}. Approve?`;
+  const approverFirst = safeName(line.approver).split(" ")[0];
+  return `Hi ${approverFirst}, ${safeName(assignee.name)} needs ${perm} access to "${line.resource}" (${line.system})${dur} to help with ${humanIntent(intent)}. Approve?`;
 }
 
 function humanIntent(intent: string): string {

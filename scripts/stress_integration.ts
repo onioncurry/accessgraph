@@ -151,6 +151,18 @@ section("P1 UI CONTRACT — demo/slack-demo.html static verification", 20);
   check("U6 demo names match the graph (sender/receiver exist in people.json)", () => {
     assert(html.includes("'shota_gushima'") && html.includes("'Rei_Kawaji'"), "names drifted from graph");
   });
+  check("U7 manual-add catalog = REAL non-confidential files only, in sync with resources.json", () => {
+    const m = html.match(/const FILE_CATALOG = (\[.*?\]);/s);
+    assert(m, "FILE_CATALOG not found");
+    const catalog: Array<{ title: string }> = JSON.parse(m![1]);
+    const resources = JSON.parse(readFileSync(join(root, "data", "resources.json"), "utf8")).resources;
+    const real = resources.filter((r: any) => r.sensitivity !== "confidential").map((r: any) => r.title);
+    const confidential = resources.filter((r: any) => r.sensitivity === "confidential").map((r: any) => r.title);
+    for (const c of catalog) assert(real.includes(c.title), `catalog offers non-real/unknown file '${c.title}'`);
+    for (const t of real) assert(catalog.some((c) => c.title === t), `catalog missing real file '${t}' — regen FILE_CATALOG`);
+    for (const t of confidential) assert(!catalog.some((c) => c.title === t), `CONFIDENTIAL '${t}' leaked into manual-add`);
+    assert(!/id="addName"/.test(html), "free-text file input still present — non-real files can be invented");
+  });
 }
 
 // ---------------------------------------------------------------------------

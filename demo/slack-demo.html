@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AccessBot — split-screen demo</title>
+<style>
+  * { box-sizing: border-box; }
+  :root {
+    --aubergine: #4A154B; --green: #007A5A; --green-hover: #148567;
+    --ink: #1D1C1D; --muted: #616061; --line: #E4E4E4; --card: #FFFFFF;
+    --ephem: #FFF8E6; --ephem-line: #F0E2B8;
+  }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: #EAEAEA; color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    font-size: 15px; line-height: 1.46;
+    display: flex; align-items: center; justify-content: center; padding: 16px;
+  }
+  .stage { width: 100%; max-width: 1060px; height: min(840px, 94vh); display: flex; flex-direction: column; }
+
+  .toolbar { display: flex; align-items: center; gap: 10px; padding: 4px 4px 12px; flex-wrap: wrap; }
+  .toolbar .title { font-weight: 800; font-size: 15px; }
+  .toolbar .grow { flex: 1; }
+  .viewas { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .viewas select { font: inherit; font-size: 12px; border: 1px solid #cfcfcf; border-radius: 7px; padding: 4px 6px; background: #fff; }
+  .tbtn { border: 1px solid #cfcfcf; background: #fff; color: var(--muted); font-size: 12px; font-weight: 600; border-radius: 7px; padding: 6px 10px; cursor: pointer; }
+  .tbtn:hover { background: #f4f4f4; color: var(--ink); }
+
+  .panes { flex: 1; display: flex; gap: 16px; min-height: 0; }
+  .pane { flex: 1; min-width: 300px; background: #fff; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+
+  .pane-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; border-radius: 4px; padding: 2px 6px; }
+  .tag.s { color: #6a4a12; background: #F6ECCF; } .tag.r { color: #14654a; background: #DDF0E8; }
+  .pane-head .nm { font-weight: 800; font-size: 15px; }
+  .pane-head .grow { flex: 1; }
+  .chan-lbl { color: var(--muted); font-size: 12px; }
+
+  .feed { flex: 1; overflow-y: auto; padding: 16px; }
+  .msg { display: flex; gap: 10px; margin-bottom: 18px; }
+  .avatar { width: 34px; height: 34px; border-radius: 8px; flex: 0 0 34px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 12px; }
+  .avatar.person { background: #7C6A8A; } .avatar.rei { background: #3D7A6B; } .avatar.bot { background: var(--aubergine); font-size: 15px; }
+  .b { min-width: 0; flex: 1; }
+  .who { font-weight: 700; font-size: 14px; }
+  .who .time { font-weight: 400; color: var(--muted); font-size: 11px; margin-left: 6px; }
+  .who .apptag { font-weight: 600; font-size: 9px; color: var(--muted); border: 1px solid var(--line); border-radius: 3px; padding: 1px 4px; margin-left: 6px; text-transform: uppercase; }
+  .text { margin-top: 2px; font-size: 14px; }
+
+  .thinking { color: var(--muted); font-size: 13px; display: flex; align-items: center; gap: 8px; margin-top: 3px; }
+  .dots span { display: inline-block; width: 5px; height: 5px; margin: 0 1px; background: var(--muted); border-radius: 50%; animation: bounce 1.1s infinite; }
+  .dots span:nth-child(2) { animation-delay: .15s; } .dots span:nth-child(3) { animation-delay: .3s; }
+  @keyframes bounce { 0%,60%,100% { opacity: .3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+  .scan-note { margin-top: 6px; font-size: 12.5px; color: var(--muted); } .scan-note b { color: var(--ink); }
+
+  .ephem { background: var(--ephem); border: 1px solid var(--ephem-line); border-radius: 12px; padding: 8px; margin-top: 8px; }
+  .ephem-label { display: flex; align-items: center; gap: 6px; color: #8a6d1a; font-size: 11.5px; font-weight: 600; padding: 4px 8px 8px; }
+
+  .card { border: 1px solid var(--line); border-radius: 10px; background: var(--card); overflow: hidden; }
+  .card-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px 4px; }
+  .spark { color: var(--aubergine); display: flex; }
+  .card-head h3 { margin: 0; font-size: 14px; font-weight: 700; }
+  .beta { font-size: 9px; font-weight: 700; color: var(--aubergine); background: #F0E7F1; border-radius: 4px; padding: 2px 5px; }
+  .card-head .grow { flex: 1; }
+  .sub { padding: 0 14px 10px; color: var(--muted); font-size: 12.5px; }
+
+  .rows { padding: 0 6px; }
+  .row { display: flex; align-items: center; gap: 10px; padding: 8px 6px; border-radius: 8px; }
+  .row:hover { background: #F7F6F7; }
+  .row > input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--green); flex: 0 0 16px; cursor: pointer; }
+  .badge { width: 28px; height: 28px; border-radius: 7px; flex: 0 0 28px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; }
+  .badge.docs { background: #1A73E8; } .badge.sheets { background: #188038; } .badge.jira { background: #2684FF; }
+  .badge.figma { background: #A259FF; } .badge.chan { background: var(--aubergine); } .badge.other { background: #616061; }
+  .rowmain { flex: 1; min-width: 0; }
+  .name { font-weight: 600; font-size: 13px; }
+  .meta { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+  .src { color: var(--muted); font-size: 12px; }
+  .lvl { font: inherit; font-size: 11.5px; border: 1px solid #cfcfcf; border-radius: 6px; padding: 2px 5px; background: #fff; color: var(--ink); cursor: pointer; }
+  .reason { display: none; margin-top: 4px; font-size: 12px; color: var(--muted); font-style: italic; }
+  .card.reviewing .reason { display: block; }
+
+  .remember { display: flex; align-items: center; gap: 10px; padding: 10px 14px; color: var(--muted); font-size: 12.5px; }
+  .switch { position: relative; width: 32px; height: 18px; flex: 0 0 32px; }
+  .switch input { opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+  .slider { position: absolute; inset: 0; background: #cfcfcf; border-radius: 18px; transition: background .15s; pointer-events: none; }
+  .slider::before { content: ""; position: absolute; width: 14px; height: 14px; left: 2px; top: 2px; background: #fff; border-radius: 50%; transition: transform .15s; }
+  .switch input:checked + .slider { background: var(--green); }
+  .switch input:checked + .slider::before { transform: translateX(14px); }
+
+  .actions { display: flex; justify-content: flex-end; gap: 8px; padding: 2px 14px 14px; }
+  .btn { font-size: 13px; font-weight: 700; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid transparent; }
+  .btn.secondary { background: #fff; border-color: #c9c9c9; color: var(--ink); }
+  .btn.secondary:hover { background: #f5f5f5; }
+  .btn.primary { background: var(--green); color: #fff; }
+  .btn.primary:hover { background: var(--green-hover); }
+  .btn.primary:disabled { background: #b7d9cd; cursor: not-allowed; }
+
+  .granted { border: 1px solid #CDE6DA; background: #F1FAF6; border-radius: 12px; padding: 12px 14px; margin-top: 8px; }
+  .granted .gtop { display: flex; align-items: center; gap: 8px; font-weight: 700; color: #14654a; font-size: 14px; }
+  .granted ul { margin: 8px 0 0; padding-left: 18px; }
+  .granted li { font-size: 13px; margin-bottom: 3px; } .granted li .g-lvl { color: var(--muted); font-size: 12px; }
+
+  .notice { border: 1px solid var(--line); background: #fff; border-radius: 12px; padding: 14px; margin-top: 8px; }
+  .notice .ntop { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }
+  .notice p { margin: 6px 0 12px; color: var(--muted); font-size: 12.5px; }
+
+  .ctx { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .fld { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--muted); }
+  .fld input, .fld select { font: inherit; font-size: 13px; border: 1px solid #cfcfcf; border-radius: 8px; padding: 7px 9px; background: #fff; color: var(--ink); }
+  .fld input:focus, .fld select:focus { outline: none; border-color: var(--aubergine); }
+
+  /* setup panel */
+  .setup { display: none; flex: 1; min-height: 0; overflow-y: auto; background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); padding: 18px 20px; }
+  .setup h4 { margin: 14px 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .setup h4:first-child { margin-top: 0; }
+  .prow { display: flex; gap: 12px; flex-wrap: wrap; }
+  .prow .fld { flex: 1; min-width: 200px; }
+  .fitem { border: 1px solid var(--line); border-radius: 10px; padding: 10px; margin-bottom: 10px; }
+  .frow { display: flex; gap: 8px; align-items: center; }
+  .fitem input, .fitem select { font: inherit; font-size: 13px; border: 1px solid #cfcfcf; border-radius: 8px; padding: 7px 9px; background: #fff; color: var(--ink); }
+  .fitem input:focus, .fitem select:focus { outline: none; border-color: var(--aubergine); }
+  .frow .f-name { flex: 1; min-width: 0; }
+  .f-reason { width: 100%; margin-top: 8px; }
+  .rm { border: 1px solid #d9c2c2; background: #fff; color: #A32D2D; border-radius: 8px; width: 34px; height: 34px; font-size: 18px; line-height: 1; cursor: pointer; flex: 0 0 34px; }
+  .rm:hover { background: #FCF3F3; }
+  .addf { margin-top: 2px; }
+  .setup-actions { margin-top: 16px; display: flex; justify-content: flex-end; }
+
+  .composer { border-top: 1px solid var(--line); padding: 10px 12px; display: flex; gap: 8px; align-items: flex-end; }
+  .composer textarea { flex: 1; resize: none; border: 1px solid #cfcfcf; border-radius: 10px; padding: 9px 11px; font: inherit; font-size: 13.5px; line-height: 1.4; max-height: 110px; }
+  .composer textarea:focus { outline: none; border-color: var(--aubergine); }
+  .send { background: var(--green); color: #fff; border: none; border-radius: 10px; padding: 9px 14px; font-weight: 700; font-size: 13.5px; cursor: pointer; }
+  .send:hover { background: var(--green-hover); }
+
+  @media (prefers-reduced-motion: no-preference) { .fade { animation: fade .28s ease; } @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } } }
+  @media (max-width: 740px) { .panes { flex-direction: column; overflow-y: auto; } .stage { height: auto; } .pane { height: 520px; } }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="toolbar">
+    <span class="title">#product-dev</span>
+    <span class="grow"></span>
+    <span class="viewas">When called, bot:
+      <select id="outcome">
+        <option value="ok">Finds files</option>
+        <option value="empty">Nothing to grant</option>
+        <option value="error">Can't find — asks for help</option>
+      </select>
+    </span>
+    <button class="tbtn" onclick="openSetup()">✎ Edit demo data</button>
+    <button class="tbtn" onclick="restart()">↻ Restart</button>
+  </div>
+
+  <div class="panes" id="panes">
+    <div class="pane">
+      <div class="pane-head"><span class="tag s">Sender</span><span class="nm" id="nmS">shota_gushima</span><span class="grow"></span><span class="chan-lbl">#product-dev</span></div>
+      <div class="feed" id="feedS"></div>
+      <div class="composer">
+        <textarea id="inputS" rows="1">この件をお願いしたいんだけど頼めるかな？ @AccessBot</textarea>
+        <button class="send" onclick="send('shota')">Send</button>
+      </div>
+    </div>
+
+    <div class="pane">
+      <div class="pane-head"><span class="tag r">Receiver</span><span class="nm" id="nmR">Rei_Kawaji</span><span class="grow"></span><span class="chan-lbl">#product-dev</span></div>
+      <div class="feed" id="feedR"></div>
+      <div class="composer">
+        <textarea id="inputR" rows="1" placeholder="Message as Rei…"></textarea>
+        <button class="send" onclick="send('rei')">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="setup" id="setup"></div>
+</div>
+
+<script>
+  const feedS = document.getElementById('feedS');
+  const feedR = document.getElementById('feedR');
+  const inputS = document.getElementById('inputS');
+  const inputR = document.getElementById('inputR');
+  const outcome = document.getElementById('outcome');
+  function down(el){ el.scrollTop = el.scrollHeight; }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function attr(s){ return esc(s).replace(/"/g,'&quot;'); }
+
+  const APPS = ['Google Docs','Google Sheets','Jira','Figma','Slack channel','Other'];
+  const APPMAP = {
+    'Google Docs': { cls:'docs', mark:'D' }, 'Google Sheets': { cls:'sheets', mark:'S' },
+    'Jira': { cls:'jira', mark:'J' }, 'Figma': { cls:'figma', mark:'F' },
+    'Slack channel': { cls:'chan', mark:'#' }, 'Other': { cls:'other', mark:'•' }
+  };
+  // Keep in sync with resolveAccess() output — see contract/sample_response.json
+  const LEVELS = ['Editor','Contributor','Viewer','Member'];
+
+  // Defaults mirror the golden AccessPackage (least privilege):
+  // write task -> editor/contributor ONLY on work surfaces; reference stays viewer.
+  const DEFAULT_CONFIG = {
+    sender: 'shota_gushima',
+    receiver: 'Rei_Kawaji',
+    files: [
+      { cls:'docs', mark:'D', name:'Project Phoenix - Product Brief', src:'Google Docs', level:'Viewer', reason:'Reference: gives context on Project Phoenix — read is enough.' },
+      { cls:'docs', mark:'D', name:'Q2 Roadmap & Milestones', src:'Google Docs', level:'Editor', reason:'Work surface: the sheet Rei updates to move progress forward.' },
+      { cls:'jira', mark:'J', name:'PROD-1327: Fix onboarding flow issue', src:'Jira', level:'Contributor', reason:'The blocked task Rei needs to pick up.' },
+      { cls:'figma', mark:'F', name:'Onboarding Flow - v2 Design', src:'Figma', level:'Viewer', reason:'Reference: the design tied to PROD-1327 — read is enough.' },
+      { cls:'chan', mark:'#', name:'#product-dev', src:'Slack channel', level:'Member', reason:'Where this work is coordinated.' }
+    ]
+  };
+  let config = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+  let runFiles = [];
+  let retryHint = null;
+
+  function initials(n){ const p = String(n).split(/[\s_]+/).filter(Boolean); let s = (p[0]?p[0][0]:'') + (p[1]?p[1][0]:''); if(!s) s = String(n).slice(0,2); return s.toUpperCase(); }
+  function firstName(n){ return String(n).split(/[\s_]+/)[0] || n; }
+
+  function personHTML(who, cls, ini, text) {
+    return '<div class="avatar '+cls+'">'+esc(ini)+'</div><div class="b"><div class="who">'+esc(who)+' <span class="time">12:40 PM</span></div><div class="text">'+esc(text)+'</div></div>';
+  }
+  function addPublic(html) { [feedS, feedR].forEach(f => { const el = document.createElement('div'); el.className='msg fade'; el.innerHTML=html; f.appendChild(el); down(f); }); }
+  function addToSender(html) { const el = document.createElement('div'); el.className='msg fade'; el.innerHTML=html; feedS.appendChild(el); down(feedS); return el; }
+  function botHead() { return '<div class="avatar bot">✦</div>'; }
+
+  function scanNote() {
+    const n = runFiles.length;
+    if (retryHint && retryHint.name) return 'Found <b>'+n+' files</b> using your hint “'+esc(retryHint.name)+'”.';
+    if (retryHint) return 'Searched again and found <b>'+n+'</b> relevant files.';
+    return 'Scanned the workspace · found <b>'+n+'</b> relevant to this task.';
+  }
+
+  function send(role) {
+    if (role === 'shota') {
+      const text = inputS.value.trim(); if (!text) return;
+      addPublic(personHTML(config.sender,'person',initials(config.sender),text));
+      inputS.value = '';
+      if (text.toLowerCase().includes('@accessbot')) setTimeout(function(){ showThinking(false); }, 550);
+    } else {
+      const text = inputR.value.trim(); if (!text) return;
+      addPublic(personHTML(config.receiver,'rei',initials(config.receiver),text));
+      inputR.value = '';
+    }
+  }
+
+  function showThinking(retry) {
+    const label = retry ? 'Searching again with your hints' : 'Looking through the workspace';
+    const el = addToSender('<div class="avatar bot">✦</div><div class="b"><div class="who">AccessBot <span class="apptag">App</span></div><div class="thinking">'+label+' <span class="dots"><span></span><span></span><span></span></span></div></div>');
+    el.id = 'thinkingMsg';
+    setTimeout(function(){
+      const t = document.getElementById('thinkingMsg'); if (t) t.remove();
+      const m = outcome.value;
+      if (m === 'error' && !retry) return showAskContext();
+      if (m === 'empty' && !retry) return showEmpty();
+      return showCard();
+    }, 1600);
+  }
+
+  function showCard() {
+    runFiles = config.files.map(f => ({...f}));
+    let rows = '';
+    runFiles.forEach(function(f, i) {
+      const opts = LEVELS.map(o => '<option'+(o===f.level?' selected':'')+'>'+o+'</option>').join('');
+      rows += '<div class="row"><input type="checkbox" checked data-i="'+i+'" onchange="update()"><span class="badge '+f.cls+'">'+esc(f.mark)+'</span>' +
+        '<span class="rowmain"><span class="name">'+esc(f.name)+'</span><span class="meta"><span class="src">'+esc(f.src)+'</span>' +
+        '<select class="lvl" data-i="'+i+'" onchange="setLevel(this)">'+opts+'</select></span>' +
+        '<span class="reason">'+esc(f.reason)+'</span></span></div>';
+    });
+    const inner = botHead() + '<div class="b"><div class="who">AccessBot <span class="apptag">App</span></div>' +
+      '<div class="scan-note">'+scanNote()+'</div>' +
+      '<div class="ephem" id="ephem"><div class="ephem-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4.5C7 4.5 2.7 8 1 12c1.7 4 6 7.5 11 7.5s9.3-3.5 11-7.5c-1.7-4-6-7.5-11-7.5z"/><circle cx="12" cy="12" r="3"/></svg> Only visible to you</div>' +
+        '<div class="card" id="card"><div class="card-head"><span class="spark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9l-4.6 3.3L16.2 18 12 14.6 7.8 18l1.3-5.7L4.5 9l5.6-1.4z"/></svg></span><h3>Access for this task</h3><span class="beta">BETA</span><span class="grow"></span></div>' +
+        '<div class="sub">Check the files and access levels for <b>'+esc(config.receiver)+'</b>, then grant.</div>' +
+        '<div class="rows" id="rows">' + rows + '</div>' +
+        '<div class="remember"><span class="switch"><input type="checkbox"><span class="slider"></span></span>Remember my choice for similar tasks</div>' +
+        '<div class="actions"><button class="btn secondary" onclick="toggleReview()">Review</button><button class="btn primary" id="grantBtn" onclick="grant()">Grant access</button></div>' +
+        '</div></div></div>';
+    const el = document.createElement('div'); el.className='msg fade'; el.innerHTML = inner; feedS.appendChild(el); down(feedS);
+    update();
+  }
+
+  function showEmpty() { addToSender(botHead() + '<div class="b"><div class="who">AccessBot <span class="apptag">App</span></div><div class="notice"><div class="ntop">No new access needed</div><p>'+esc(firstName(config.receiver))+' can already open everything required for this task.</p><button class="btn secondary" onclick="restart()">Search again</button></div></div>'); }
+
+  function showAskContext() {
+    const locOpts = ['Not sure','Google Drive','Jira','Figma','Confluence','SharePoint'].map(o => '<option>'+o+'</option>').join('');
+    addToSender(botHead() + '<div class="b"><div class="who">AccessBot <span class="apptag">App</span></div>' +
+      '<div class="notice"><div class="ntop">I couldn\'t pin down the right files</div>' +
+      '<p>Give me a hint and I\'ll look again — anything you remember helps.</p>' +
+      '<div class="ctx">' +
+        '<label class="fld"><span>File name (if you remember)</span><input id="ctxName" type="text" placeholder="e.g. Onboarding Flow - v2"></label>' +
+        '<label class="fld"><span>Where it lives</span><select id="ctxLoc">'+locOpts+'</select></label>' +
+        '<label class="fld"><span>Anything else (optional)</span><input id="ctxNotes" type="text" placeholder="e.g. shared by Sarah last week"></label>' +
+      '</div>' +
+      '<div style="margin-top:10px;text-align:right;"><button class="btn primary" onclick="retryWithContext()">Search again</button></div>' +
+      '</div></div>');
+  }
+
+  function retryWithContext() {
+    const name = (document.getElementById('ctxName').value || '').trim();
+    const loc = document.getElementById('ctxLoc').value;
+    const notes = (document.getElementById('ctxNotes').value || '').trim();
+    retryHint = { name: name, loc: loc, notes: notes };
+    let bits = [];
+    if (name) bits.push('“'+name+'”');
+    if (loc && loc !== 'Not sure') bits.push('in ' + loc);
+    if (notes) bits.push(notes);
+    if (bits.length) addToSender(personHTML(config.sender,'person',initials(config.sender), bits.join(' · ')));
+    showThinking(true);
+  }
+
+  function setLevel(sel) { runFiles[+sel.dataset.i].level = sel.value; }
+  function selectedIdx() { return Array.prototype.slice.call(document.querySelectorAll('#rows input[type=checkbox]:checked')).map(c => +c.dataset.i); }
+  function update() { const n = selectedIdx().length; const b = document.getElementById('grantBtn'); if (!b) return; b.textContent = 'Grant access (' + n + ')'; b.disabled = n === 0; }
+  function toggleReview() { document.getElementById('card').classList.toggle('reviewing'); }
+
+  function grant() {
+    const idx = selectedIdx(); if (!idx.length) return;
+    const e = document.getElementById('ephem'); if (e) { const wrap = e.closest('.msg'); if (wrap) wrap.remove(); }
+    let items = idx.map(i => '<li>'+esc(runFiles[i].name)+' <span class="g-lvl">— '+esc(runFiles[i].level)+'</span></li>').join('');
+    addPublic(botHead() + '<div class="b"><div class="who">AccessBot <span class="apptag">App</span></div><div class="granted"><div class="gtop"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Access granted</div><div style="margin-top:6px;font-size:13.5px;">Hi <b>@'+esc(config.receiver)+'</b> — you can now work on this task. You\'ve been given access to:</div><ul>'+items+'</ul></div></div>');
+  }
+
+  /* ---- setup panel ---- */
+  function srcToApp(f) { return APPS.indexOf(f.src) >= 0 ? f.src : 'Other'; }
+  function fileForm(f) {
+    const appName = srcToApp(f);
+    const appOpts = APPS.map(a => '<option'+(a===appName?' selected':'')+'>'+a+'</option>').join('');
+    const lvlOpts = LEVELS.map(o => '<option'+(o===f.level?' selected':'')+'>'+o+'</option>').join('');
+    return '<div class="fitem">' +
+      '<div class="frow">' +
+        '<input class="f-name" type="text" placeholder="File name" value="'+attr(f.name)+'">' +
+        '<select class="f-app">'+appOpts+'</select>' +
+        '<select class="f-lvl">'+lvlOpts+'</select>' +
+        '<button class="rm" title="Remove" onclick="this.closest(\'.fitem\').remove()">×</button>' +
+      '</div>' +
+      '<input class="f-reason" type="text" placeholder="Why is this needed? (optional)" value="'+attr(f.reason||'')+'">' +
+    '</div>';
+  }
+  function openSetup() {
+    const s = document.getElementById('setup');
+    const rows = config.files.map(fileForm).join('');
+    s.innerHTML =
+      '<div><h4>People</h4>' +
+      '<div class="prow"><label class="fld"><span>Sender name</span><input id="setSender" type="text" value="'+attr(config.sender)+'"></label>' +
+      '<label class="fld"><span>Receiver name</span><input id="setReceiver" type="text" value="'+attr(config.receiver)+'"></label></div>' +
+      '<h4>Files the bot will suggest</h4>' +
+      '<div id="fileList">'+rows+'</div>' +
+      '<button class="btn secondary addf" onclick="addFileRow()">+ Add file</button>' +
+      '<div class="setup-actions"><button class="btn primary" onclick="saveSetup()">Done</button></div></div>';
+    document.getElementById('panes').style.display = 'none';
+    s.style.display = 'block';
+  }
+  function addFileRow() { document.getElementById('fileList').insertAdjacentHTML('beforeend', fileForm({ name:'', src:'Google Docs', level:'Editor', reason:'' })); }
+  function saveSetup() {
+    config.sender = document.getElementById('setSender').value.trim() || 'Sender';
+    config.receiver = document.getElementById('setReceiver').value.trim() || 'Receiver';
+    const items = Array.prototype.slice.call(document.querySelectorAll('#fileList .fitem'));
+    config.files = items.map(function(it) {
+      const name = it.querySelector('.f-name').value.trim();
+      if (!name) return null;
+      const app = it.querySelector('.f-app').value;
+      const level = it.querySelector('.f-lvl').value;
+      const reason = it.querySelector('.f-reason').value.trim() || 'Relevant to this task.';
+      const m = APPMAP[app];
+      const mark = app === 'Other' ? (name[0] || '•').toUpperCase() : m.mark;
+      const src = app === 'Other' ? 'File' : app;
+      return { cls: m.cls, mark: mark, name: name, src: src, level: level, reason: reason };
+    }).filter(Boolean);
+    document.getElementById('setup').style.display = 'none';
+    document.getElementById('panes').style.display = 'flex';
+    applyConfig();
+    restart();
+  }
+
+  function applyConfig() {
+    document.getElementById('nmS').textContent = config.sender;
+    document.getElementById('nmR').textContent = config.receiver;
+    inputR.placeholder = 'Message as ' + firstName(config.receiver) + '…';
+  }
+
+  function restart() {
+    feedS.innerHTML = ''; feedR.innerHTML = '';
+    runFiles = []; retryHint = null;
+    inputS.value = 'この件をお願いしたいんだけど頼めるかな？ @AccessBot';
+    inputR.value = '';
+  }
+
+  inputS.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send('shota'); } });
+  inputR.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send('rei'); } });
+  applyConfig();
+</script>
+</body>
+</html>

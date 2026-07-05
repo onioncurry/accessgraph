@@ -46,6 +46,26 @@
       "approval_required": true,
       "approver_rule": "assignee_manager",
       "never_auto_grant": true
+    },
+    {
+      "resource_type": "hr_data",
+      "description": "Confidential HR data (interviews, payroll, comp). Manager approval, never auto-bundled.",
+      "read_intent_permission": "viewer",
+      "write_intent_permission": "viewer",
+      "max_duration": "3 days",
+      "approval_required": true,
+      "approver_rule": "assignee_manager",
+      "never_auto_grant": true
+    },
+    {
+      "resource_type": "finance_data",
+      "description": "Confidential finance/board material. Manager approval, never auto-bundled.",
+      "read_intent_permission": "viewer",
+      "write_intent_permission": "viewer",
+      "max_duration": "3 days",
+      "approval_required": true,
+      "approver_rule": "assignee_manager",
+      "never_auto_grant": true
     }
   ]
 }

@@ -45,6 +45,8 @@ export interface Resource {
   category?: Category;
   /** one-line summary — the ONLY content stored in the brain (metadata-only catalog) */
   summary?: string;
+  /** actual file in the repo's company_drive/ (demo artifact judges can open) */
+  file_path?: string;
   sensitivity: "internal" | "confidential";
   resource_type: string;
   /** reference = read-only even on write tasks; work_surface = earns write on write tasks */

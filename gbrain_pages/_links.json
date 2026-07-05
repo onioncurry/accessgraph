@@ -193,6 +193,270 @@
     "context": "viewer"
   },
   {
+    "from": "person/shota_gushima",
+    "to": "resource/phoenix-launch-deck",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/phoenix-launch-deck",
+    "to": "project/sales",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/phoenix-launch-deck",
+    "to": "category/spec",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/phoenix-launch-deck",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/phoenix-launch-deck",
+    "link_type": "has_access",
+    "context": "editor"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/sales-pipeline-review",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/sales-pipeline-review",
+    "to": "project/sales",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/sales-pipeline-review",
+    "to": "category/report",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/sales-pipeline-review",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/sales-pipeline-review",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/market-research-competitors",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/market-research-competitors",
+    "to": "project/sales",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/market-research-competitors",
+    "to": "category/report",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/market-research-competitors",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/hiring-plan-2026",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/hiring-plan-2026",
+    "to": "project/people-ops",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/hiring-plan-2026",
+    "to": "category/report",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/hiring-plan-2026",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/interview-notes-design-lead",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/interview-notes-design-lead",
+    "to": "project/people-ops",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/interview-notes-design-lead",
+    "to": "category/meeting-notes",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/interview-notes-design-lead",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/koichi_ikeno",
+    "to": "resource/interview-notes-design-lead",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/payroll-q2",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/payroll-q2",
+    "to": "project/finance",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/payroll-q2",
+    "to": "category/report",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/payroll-q2",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/q2-board-update",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/q2-board-update",
+    "to": "project/finance",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/q2-board-update",
+    "to": "category/report",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/q2-board-update",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/koichi_ikeno",
+    "to": "resource/brand-guidelines-v3",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/brand-guidelines-v3",
+    "to": "project/brand",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/brand-guidelines-v3",
+    "to": "category/design",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/koichi_ikeno",
+    "to": "resource/brand-guidelines-v3",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/brand-guidelines-v3",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "resource/company-handbook",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/company-handbook",
+    "to": "project/operations",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/company-handbook",
+    "to": "category/spec",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "resource/company-handbook",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/company-handbook",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/company-handbook",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/rei_kawaji",
+    "to": "resource/company-handbook",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/koichi_ikeno",
+    "to": "resource/company-handbook",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/company-handbook",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "resource/incident-runbook",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/incident-runbook",
+    "to": "project/operations",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/incident-runbook",
+    "to": "category/spec",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "resource/incident-runbook",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
     "from": "resource/product-brief",
     "to": "policy/product_doc",
     "link_type": "governed_by"
@@ -204,6 +468,41 @@
   },
   {
     "from": "resource/onboarding-flow-v2",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/phoenix-launch-deck",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/sales-pipeline-review",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/market-research-competitors",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/hiring-plan-2026",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/brand-guidelines-v3",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/company-handbook",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/incident-runbook",
     "to": "policy/product_doc",
     "link_type": "governed_by"
   },
@@ -220,6 +519,21 @@
   {
     "from": "resource/customer-accounts-sfdc",
     "to": "policy/customer_data",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/interview-notes-design-lead",
+    "to": "policy/hr_data",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/payroll-q2",
+    "to": "policy/hr_data",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/q2-board-update",
+    "to": "policy/finance_data",
     "link_type": "governed_by"
   },
   {

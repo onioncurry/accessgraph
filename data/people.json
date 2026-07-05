@@ -60,16 +60,87 @@
     {
       "id": "phoenix",
       "name": "Project Phoenix",
-      "aliases": ["product", "プロダクト", "phoenix", "フェニックス"],
+      "aliases": [
+        "product",
+        "プロダクト",
+        "phoenix",
+        "フェニックス"
+      ],
       "lead": "jiayi_li",
-      "members": ["shota_gushima", "rei_kawaji", "jiayi_li", "koichi_ikeno", "mitsuhiro_suzuki"]
+      "members": [
+        "shota_gushima",
+        "rei_kawaji",
+        "jiayi_li",
+        "koichi_ikeno",
+        "mitsuhiro_suzuki"
+      ]
     },
     {
       "id": "sales",
       "name": "Sales / GTM",
-      "aliases": ["sales", "営業", "gtm"],
+      "aliases": [
+        "sales",
+        "営業",
+        "gtm"
+      ],
       "lead": "ayumu_kobayashi",
-      "members": ["ayumu_kobayashi", "jiayi_li"]
+      "members": [
+        "ayumu_kobayashi",
+        "jiayi_li"
+      ]
+    },
+    {
+      "id": "people-ops",
+      "name": "People Ops",
+      "aliases": [
+        "hiring",
+        "hr",
+        "採用"
+      ],
+      "lead": "jiayi_li",
+      "members": [
+        "jiayi_li",
+        "koichi_ikeno"
+      ]
+    },
+    {
+      "id": "operations",
+      "name": "Operations",
+      "aliases": [
+        "ops",
+        "internal"
+      ],
+      "lead": "mitsuhiro_suzuki",
+      "members": [
+        "mitsuhiro_suzuki",
+        "shota_gushima"
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance & Board",
+      "aliases": [
+        "finance",
+        "board",
+        "財務"
+      ],
+      "lead": "jiayi_li",
+      "members": [
+        "jiayi_li"
+      ]
+    },
+    {
+      "id": "brand",
+      "name": "Brand & Design System",
+      "aliases": [
+        "brand",
+        "ブランド"
+      ],
+      "lead": "koichi_ikeno",
+      "members": [
+        "koichi_ikeno",
+        "shota_gushima"
+      ]
     }
   ]
 }

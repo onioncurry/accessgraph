@@ -48,6 +48,46 @@
     "file": "gbrain_pages/customer-accounts-sfdc.md"
   },
   {
+    "slug": "resource/phoenix-launch-deck",
+    "file": "gbrain_pages/phoenix-launch-deck.md"
+  },
+  {
+    "slug": "resource/sales-pipeline-review",
+    "file": "gbrain_pages/sales-pipeline-review.md"
+  },
+  {
+    "slug": "resource/market-research-competitors",
+    "file": "gbrain_pages/market-research-competitors.md"
+  },
+  {
+    "slug": "resource/hiring-plan-2026",
+    "file": "gbrain_pages/hiring-plan-2026.md"
+  },
+  {
+    "slug": "resource/interview-notes-design-lead",
+    "file": "gbrain_pages/interview-notes-design-lead.md"
+  },
+  {
+    "slug": "resource/payroll-q2",
+    "file": "gbrain_pages/payroll-q2.md"
+  },
+  {
+    "slug": "resource/q2-board-update",
+    "file": "gbrain_pages/q2-board-update.md"
+  },
+  {
+    "slug": "resource/brand-guidelines-v3",
+    "file": "gbrain_pages/brand-guidelines-v3.md"
+  },
+  {
+    "slug": "resource/company-handbook",
+    "file": "gbrain_pages/company-handbook.md"
+  },
+  {
+    "slug": "resource/incident-runbook",
+    "file": "gbrain_pages/incident-runbook.md"
+  },
+  {
     "slug": "category/spec",
     "file": "gbrain_pages/category-spec.md"
   },
@@ -68,6 +108,14 @@
     "file": "gbrain_pages/category-customer-data.md"
   },
   {
+    "slug": "category/report",
+    "file": "gbrain_pages/category-report.md"
+  },
+  {
+    "slug": "category/meeting-notes",
+    "file": "gbrain_pages/category-meeting-notes.md"
+  },
+  {
     "slug": "policy/product_doc",
     "file": "gbrain_pages/policy-product_doc.md"
   },
@@ -86,6 +134,14 @@
   {
     "slug": "policy/customer_data",
     "file": "gbrain_pages/policy-customer_data.md"
+  },
+  {
+    "slug": "policy/hr_data",
+    "file": "gbrain_pages/policy-hr_data.md"
+  },
+  {
+    "slug": "policy/finance_data",
+    "file": "gbrain_pages/policy-finance_data.md"
   },
   {
     "slug": "task/task-q1-progress-push",

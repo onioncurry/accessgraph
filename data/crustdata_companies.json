@@ -1,0 +1,34 @@
+﻿[
+    {
+        "domain":  "notion.so",
+        "name":  "Notion Korea",
+        "hq":  "",
+        "employees":  "501-1000",
+        "founded":  "2016",
+        "linkedin":  "https://www.linkedin.com/company/notionhq-kr"
+    },
+    {
+        "domain":  "figma.com",
+        "name":  "Figma",
+        "hq":  "San Francisco, California, United States",
+        "employees":  "1001-5000",
+        "founded":  "2012",
+        "linkedin":  "https://www.linkedin.com/company/figma"
+    },
+    {
+        "domain":  "vercel.com",
+        "name":  "Vercel",
+        "hq":  "San Francisco, California, United States",
+        "employees":  "501-1000",
+        "founded":  "2015",
+        "linkedin":  "https://www.linkedin.com/company/vercel"
+    },
+    {
+        "domain":  "anthropic.com",
+        "name":  "Anthropic",
+        "hq":  "",
+        "employees":  "501-1000",
+        "founded":  "2021",
+        "linkedin":  "https://www.linkedin.com/company/anthropicresearch"
+    }
+]

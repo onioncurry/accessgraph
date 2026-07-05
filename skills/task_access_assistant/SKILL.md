@@ -96,5 +96,5 @@ steps below. All knowledge you need lives in the brain:
 
 ## Verify
 
-`npm test` runs 34 adversarial cases (privilege escalation, project-claim
+`npm test` runs 54 adversarial cases (plus `npm run test:max` and `npm run test:integration` — 100+ total) (privilege escalation, project-claim
 bypass, fail-open, injection, fuzzy-match footguns). All must pass.

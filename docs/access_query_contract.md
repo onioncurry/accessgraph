@@ -1,12 +1,12 @@
-# AccessBot — Query Contract (Person 3 ↔ Person 2 ↔ Person 1)
+# AccessBot — Query Contract (graph ↔ skill ↔ UI)
 
-The interface between the G-Brain Access Graph (Person 3), the
-`task_access_assistant` skill (Person 2), and the UI (Person 1). This is locked —
+The interface between the G-Brain access graph, the `task_access_assistant`
+skill, and the card UI. This is locked —
 build against it in parallel. Types: [`lib/types.ts`](../lib/types.ts).
 
 ---
 
-## The one function Person 2 calls
+## The one function the skill calls
 
 ```ts
 import { resolveAccess, loadGraph } from "../../lib/mockAccess.ts";
@@ -17,12 +17,12 @@ const pkg = resolveAccess(input);          // AccessPackage
 - Golden input/output: [`contract/sample_query.json`](../contract/sample_query.json) → [`contract/sample_response.json`](../contract/sample_response.json)
 - Golden test cases incl. expected permissions: [`data/task_examples.json`](../data/task_examples.json)
 
-Person 2 owns the **task parser** (Slack/Teams message → `TaskInput`).
-Person 3 owns everything from `TaskInput` onward.
+The skill owns the **task parser** (Slack/Teams message → `TaskInput`).
+The graph layer owns everything from `TaskInput` onward.
 
 ---
 
-## INPUT — `TaskInput` (Person 2's parser produces this)
+## INPUT — `TaskInput` (the parser produces this)
 
 ```json
 {
@@ -83,7 +83,7 @@ Shape (abridged):
 }
 ```
 
-### How Person 1 maps this to the "Auto-share for this task" panel
+### How the UI maps this to the "Auto-share for this task" panel
 
 | AccessPackage | UI |
 |---|---|
@@ -112,7 +112,7 @@ Shape (abridged):
 - `clarify_task` — **0 resources matched**; the task was too vague to map. Agents
   must ask, not treat this as done.
 
-## Guarantees (Person 3) — enforced by `npm test` (34 adversarial cases)
+## Guarantees — enforced by `npm test` (34 adversarial cases)
 
 1. **Deterministic** — same input, same output. Demo-safe.
 2. **Least privilege** — per-resource, via `intent_role` × policy; garbage/unknown

@@ -1,6 +1,6 @@
-# Integration setup (Person 1 + 2 + 3 on one device)
+# Setup & reproduction guide
 
-Everything Person 3 built is self-contained in this repo. Follow this top to
+Everything is self-contained in this repo. Follow this top to
 bottom on the integration machine — ~5 minutes.
 
 ## 0. Prerequisites
@@ -18,7 +18,7 @@ npm test          # must print: 54 passed / 0 failed
 npm run demo      # hero task -> 5 resources, Share all (5)
 ```
 
-If both pass, Person 3's layer works on your machine. Everything below is optional
+If both pass, the engine works on your machine. Everything below is optional
 enrichment.
 
 ## 2. Secrets (.env) — NEVER commit this file
@@ -26,7 +26,7 @@ enrichment.
 Create `accessgraph/.env` (already gitignored):
 
 ```
-CRUSTDATA_API_KEY=<get this from Ray via DM — not in the repo, repo is public>
+CRUSTDATA_API_KEY=<ask the team for a key — never committed; everything also runs without one>
 ```
 
 Then the real-data demo works:
@@ -41,8 +41,8 @@ If the API is down or you have no key: `data/crustdata_demo.json` and
 
 ## 3. Seed the G-Brain on THIS machine (the #1 integration gotcha)
 
-The brain Person 3 seeded lives on Person 3's machine. Your device's brain is
-empty until you load `gbrain_pages/` (all 27 pages are in the repo):
+A G-Brain is per-machine. Your device's brain is
+empty until you load `gbrain_pages/` (all 41 pages are in the repo):
 
 ```bash
 node scripts/seed_gbrain.ts        # regenerates gbrain_pages/ + _manifest.json
@@ -62,11 +62,11 @@ Verify: `gbrain search "who approves access to customer data"` → should return
 
 ## 4. Wire-up points
 
-| Person | integrates with | how |
+| Layer | integrates with | how |
 |---|---|---|
-| **2 (Skill)** | `lib/mockAccess.ts` | `import { resolveAccess } from "../../lib/mockAccess.ts"` — input/output contract: `docs/access_query_contract.md`. A reference parser exists at `lib/parseTask.ts` (JA/EN) — replace or keep. |
-| **1 (UI)** | `AccessPackage` JSON | golden sample: `contract/sample_response.json`. Card mapping table is in the contract doc. Loading state → call, `required_access[]` → rows, `summary.missing` → "Share all (N)". |
-| glue | CLI | `node scripts/query.ts --json --dm Rei_Kawaji "<raw message>"` returns the full AccessPackage — Person 1 can shell out to this before the TS import is wired. |
+| **Skill** | `lib/mockAccess.ts` | `import { resolveAccess } from "../../lib/mockAccess.ts"` — input/output contract: `docs/access_query_contract.md`. A reference parser exists at `lib/parseTask.ts` (JA/EN) — replace or keep. |
+| **UI** | `AccessPackage` JSON | golden sample: `contract/sample_response.json`. Card mapping table is in the contract doc. Loading state → call, `required_access[]` → rows, `summary.missing` → "Share all (N)". |
+| glue | CLI | `node scripts/query.ts --json --dm Rei_Kawaji "<raw message>"` returns the full AccessPackage — any front end can shell out to this before wiring the TS import. |
 
 ## 5. Demo commands (for the video)
 

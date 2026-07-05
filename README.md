@@ -38,13 +38,18 @@ in `.env`; a cached run is committed as the deliverable.)
 
 Requires Node ≥ 23.6 (native TS). No install, no build.
 
-## Team split
+## Repo layout
 
-| Person | Owns | Where |
-|---|---|---|
-| **1 — Slack Front Door** | mention → thread reply → Block Kit card, buttons | `app/api/slack/`, `components/` |
-| **2 — GStack Skill** | parse task → call `resolveAccess()` → strict JSON | `skills/task_access_assistant/` |
-| **3 — G-Brain Access Graph** | company knowledge, access state, policies, resolver | `data/`, `lib/`, `scripts/`, `gbrain_pages/` |
+| Where | What |
+|---|---|
+| `demo/` + `scripts/serve_demo.mjs` | split-screen Slack demo (`npm run serve:demo` → the card is driven by the REAL engine via `/resolve`) |
+| `lib/` | the engine: bilingual task parser (`parseTask`, mention-triggered) + least-privilege resolver (`resolveAccess`) |
+| `data/` | the company graph: people, projects, resources, policies, past tasks — plus live Crustdata pulls |
+| `company_drive/` | 15 real .docx/.pptx/.xlsx/.json files, each referenced by a graph resource |
+| `skills/` | the agent-executable skill (`task_access_assistant/SKILL.md`) |
+| `gbrain_pages/` | the same knowledge as G-Brain pages + typed links (41 pages, loadable into a real brain) |
+| `scripts/` | demos, seeders, and three adversarial test suites (`npm test`, `test:max`, `test:integration`) |
+| `contract/` + `docs/` | the TaskInput→AccessPackage contract, golden I/O, pitch deck, evidence runs |
 
 ## It's a G-Brain skill, end to end
 
@@ -62,15 +67,15 @@ The whole product ships as **one skill** with two execution paths:
 That is the Company Brain RFS verbatim: *"turns it into an executable skills
 file for AI."* The brain holds the knowledge, the rules, **and the skill**.
 
-## Person 3 layer (this is done ✅)
+## The knowledge layer
 
 - **`data/`** — people.json, resources.json, policies.json, task_examples.json
-  (golden inputs + expected outputs for Person 2's parser tests)
+  (golden inputs + expected outputs for the parser test suite)
 - **`lib/types.ts`** — shared contract types (`TaskInput` → `AccessPackage`)
 - **`lib/mockAccess.ts`** — the engine: `resolveAccess(input)` returns the
   least-privilege access package. Deterministic; demo-safe.
 - **`scripts/query.ts`** — CLI harness; `contract/sample_response.json` is the
-  golden output Person 1 can build the card against **right now**.
+  golden output the card UI is built against.
 - **`scripts/seed_gbrain.ts`** + **`gbrain_pages/`** — the same entities seeded
   into a real G-Brain (pages + typed links: owns / has_access / reports_to /
   governed_by), so resource discovery is a real semantic query, not a hard-coded list.
@@ -105,10 +110,10 @@ file for AI."* The brain holds the knowledge, the rules, **and the skill**.
    exactly what access it needs, at what level, for how long, and who approves —
    *before* it acts.
 
-## Interface (Person 2 / Person 1)
+## Interfaces (parser → engine → UI)
 
 See [`docs/access_query_contract.md`](docs/access_query_contract.md).
-TL;DR — Person 2's parser produces:
+TL;DR — the parser produces:
 
 ```json
 { "assignee": "Rei_Kawaji", "project": "phoenix", "intent": "continue_progress",
@@ -116,5 +121,5 @@ TL;DR — Person 2's parser produces:
 ```
 
 …and calls `resolveAccess(input)` from `lib/mockAccess.ts`. The returned
-`AccessPackage` (`contract/sample_response.json`) is what Person 1 renders:
-`required_access[]` → panel rows, `request_message` → behind **Review / Share all**.
+`AccessPackage` (`contract/sample_response.json`) is what the UI renders:
+`required_access[]` → panel rows, `request_message` → behind **Review / Grant**.

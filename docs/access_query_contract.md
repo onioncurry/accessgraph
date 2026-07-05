@@ -30,7 +30,7 @@ Person 3 owns everything from `TaskInput` onward.
   "project": "phoenix",
   "intent": "continue_progress",
   "keywords": ["product", "progress"],
-  "raw_text": "プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？"
+  "raw_text": "Help Rei continue the product progress and share the docs she needs."
 }
 ```
 

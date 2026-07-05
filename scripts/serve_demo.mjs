@@ -5,10 +5,10 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const html = readFileSync(join(root, "demo", "slack-demo.html"));
 const port = process.env.PORT || 8377;
 
 createServer((req, res) => {
+  // read per request so edits show up on refresh during the hackathon
   res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-  res.end(html);
+  res.end(readFileSync(join(root, "demo", "slack-demo.html")));
 }).listen(port, () => console.log(`AccessBot demo on http://localhost:${port}`));

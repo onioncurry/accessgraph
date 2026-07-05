@@ -71,6 +71,8 @@ Verify: `gbrain search "who approves access to customer data"` → should return
 ## 5. Demo commands (for the video)
 
 ```bash
+node scripts/query.ts --dm Rei_Kawaji "Can you take this task over? Product progress is stuck."
+# Japanese input works too (bilingual parser):
 node scripts/query.ts --dm Rei_Kawaji "プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？"
 npm run demo:review      # least privilege: read task -> all viewer
 npm run demo:blocked     # confidential -> blocked, manager approver

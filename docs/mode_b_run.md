@@ -17,6 +17,7 @@ gbrain search "skill for figuring out what access someone needs for an assigned 
 
 DM, shota_gushima → Rei_Kawaji:
 「プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？」
+*(EN: "Product progress is stuck — can I ask you to take over this task?")*
 
 Parse (step 1): assignee = Rei Kawaji (DM other participant), intent =
 continue_progress ("進捗を進める"), project = phoenix, keywords = product, progress.

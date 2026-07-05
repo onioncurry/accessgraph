@@ -2,7 +2,7 @@
 //
 //   node scripts/query.ts                          # hero task from task_examples.json
 //   node scripts/query.ts "Help Rei continue the product progress"   # RAW TEXT (design-doc pipeline)
-//   node scripts/query.ts --dm Rei_Kawaji "プロダクトの進捗を進めてもらいたい"  # DM context
+//   node scripts/query.ts --dm Rei_Kawaji "Can you take this task over?"   # DM context (JA input also supported)
 //   node scripts/query.ts --example review-only    # run a named golden example
 //   node scripts/query.ts --input '{"assignee":"Rei_Kawaji","project":"phoenix","intent":"continue_progress"}'
 //   node scripts/query.ts --json ...               # raw AccessPackage JSON only

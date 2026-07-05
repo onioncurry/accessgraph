@@ -11,7 +11,8 @@ Agents** (machine-readable access requirements before an agent acts) ×
 
 ## Demo scenario (matches the UI mock)
 
-Shota DMs Rei: *「プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？」*
+Shota DMs Rei: *"Can you take this task over? Product progress is stuck."*
+(Japanese input works too — the parser handles both: 「プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？」)
 
 AccessGraph detects the task, queries the G-Brain access graph, and pops the
 **"Auto-share for this task"** panel: Rei is missing all 5 resources the task

@@ -6,7 +6,8 @@
 > can't do the work, but because they don't have the right permissions."
 
 ## Before (10s)
-Shota DMs Rei: 「プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？」
+Shota DMs Rei: *"Can you take this task over? Product progress is stuck."*
+(bilingual flex: the same skill parses the Japanese original — 「プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？」)
 Normally: *"I can't open the roadmap… I don't have the Figma… who owns PROD-1327?"* → the task stalls on day one.
 
 ## After — the live demo (40s)

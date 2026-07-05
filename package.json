@@ -15,6 +15,8 @@
     "seed:gbrain": "node scripts/seed_gbrain.ts",
     "demo:crustdata": "node scripts/crustdata_demo.ts",
     "test": "node scripts/stress_test.ts",
-    "test:max": "node scripts/stress_max.ts"
+    "test:max": "node scripts/stress_max.ts",
+    "test:integration": "node scripts/stress_integration.ts",
+    "serve:demo": "node scripts/serve_demo.mjs"
   }
 }

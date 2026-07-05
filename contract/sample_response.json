@@ -31,6 +31,23 @@
       "request_message": "Hi Shota, Rei Kawaji needs Viewer access to \"Project Phoenix - Product Brief\" (Google Docs) for 7 days to help with continuing the product progress. Approve?"
     },
     {
+      "resource": "#product-dev",
+      "resource_id": "channel-product-dev",
+      "system": "Microsoft Teams",
+      "icon": "teams",
+      "owner": "Shota Gushima",
+      "owner_email": "shota.gushima@northwind.ai",
+      "status": "missing",
+      "current_permission": null,
+      "recommended_permission": "member",
+      "duration": "none",
+      "approval_required": false,
+      "approver": "Shota Gushima",
+      "approver_email": "shota.gushima@northwind.ai",
+      "reason": "Needed to read (reference) for Project Phoenix work: \"#product-dev\" (Microsoft Teams).",
+      "request_message": "Hi Shota, Rei Kawaji needs Member access to \"#product-dev\" (Microsoft Teams) to help with continuing the product progress. Approve?"
+    },
+    {
       "resource": "Q2 Roadmap & Milestones",
       "resource_id": "q2-roadmap-milestones",
       "system": "Google Docs",
@@ -63,23 +80,6 @@
       "approver_email": "mitsuhiro.suzuki@northwind.ai",
       "reason": "Needed to update for Project Phoenix work: \"PROD-1327: Fix onboarding flow issue\" (Jira).",
       "request_message": "Hi Mitsuhiro, Rei Kawaji needs Contributor access to \"PROD-1327: Fix onboarding flow issue\" (Jira) for 14 days to help with continuing the product progress. Approve?"
-    },
-    {
-      "resource": "#product-dev",
-      "resource_id": "channel-product-dev",
-      "system": "Microsoft Teams",
-      "icon": "teams",
-      "owner": "Shota Gushima",
-      "owner_email": "shota.gushima@northwind.ai",
-      "status": "missing",
-      "current_permission": null,
-      "recommended_permission": "member",
-      "duration": "none",
-      "approval_required": false,
-      "approver": "Shota Gushima",
-      "approver_email": "shota.gushima@northwind.ai",
-      "reason": "Needed to read (reference) for Project Phoenix work: \"#product-dev\" (Microsoft Teams).",
-      "request_message": "Hi Shota, Rei Kawaji needs Member access to \"#product-dev\" (Microsoft Teams) to help with continuing the product progress. Approve?"
     },
     {
       "resource": "Onboarding Flow - v2 Design",

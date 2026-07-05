@@ -36,6 +36,10 @@ const INTENT_RULES: Array<[RegExp, TaskInput["intent"]]> = [
   [/\b(update|edit|finish|complete|fill in)\b/i, "update"],
   [/\b(review|check|look at|look over)\b/i, "review"],
   [/\b(investigate|debug|diagnose|root.?cause)\b/i, "investigate"],
+  // generic task-handoff phrasing (「この件をお願いしたい」「頼めるかな」) — the
+  // assignee is being asked to DO work, so treat as continue_progress. Placed
+  // last so review/investigate wording wins when both appear.
+  [/(お願いしたい|お願いできる|頼めるかな|頼みたい|任せても|やってもらえ|can you (take|handle)|could you help)/iu, "continue_progress"],
 ];
 
 export function parseTask(

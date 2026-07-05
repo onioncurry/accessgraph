@@ -1,0 +1,425 @@
+{
+  "source": "crustdata",
+  "domain": "stripe.com",
+  "company": {
+    "name": "Stripe",
+    "headquarters": "South San Francisco, California, United States",
+    "employee_count_range": "5001-10000",
+    "year_founded": "2010-01-01",
+    "linkedin": "https://www.linkedin.com/company/stripe"
+  },
+  "people_matched_total": "679",
+  "graph": {
+    "people": [
+      {
+        "id": "scott_e",
+        "name": "Scott E.",
+        "handle": "scott_e",
+        "role": "Product Marketing Lead",
+        "email": "scott.e@stripe-com.demo",
+        "department": "Marketing",
+        "manager": null
+      },
+      {
+        "id": "alex_sadowski",
+        "name": "Alex Sadowski",
+        "handle": "alex_sadowski",
+        "role": "Product Lead",
+        "email": "alex.sadowski@stripe-com.demo",
+        "department": "Product",
+        "manager": "scott_e"
+      },
+      {
+        "id": "katie_ochieano",
+        "name": "Katie Ochieano",
+        "handle": "katie_ochieano",
+        "role": "Lead, Product Marketing",
+        "email": "katie.ochieano@stripe-com.demo",
+        "department": "Marketing",
+        "manager": "scott_e"
+      },
+      {
+        "id": "eduard_lataretu",
+        "name": "Eduard Lataretu",
+        "handle": "eduard_lataretu",
+        "role": "Engineering Manager",
+        "email": "eduard.lataretu@stripe-com.demo",
+        "department": "Engineering",
+        "manager": "scott_e"
+      },
+      {
+        "id": "guy_alster",
+        "name": "Guy Alster",
+        "handle": "guy_alster",
+        "role": "Engineering Manager",
+        "email": "guy.alster@stripe-com.demo",
+        "department": "Engineering",
+        "manager": "scott_e"
+      }
+    ],
+    "projects": [
+      {
+        "id": "phoenix",
+        "name": "Project Phoenix",
+        "aliases": [
+          "product",
+          "プロダクト",
+          "phoenix",
+          "フェニックス"
+        ],
+        "lead": "scott_e",
+        "members": [
+          "scott_e",
+          "alex_sadowski",
+          "katie_ochieano",
+          "eduard_lataretu",
+          "guy_alster"
+        ]
+      },
+      {
+        "id": "sales",
+        "name": "Sales / GTM",
+        "aliases": [
+          "sales",
+          "営業",
+          "gtm"
+        ],
+        "lead": "scott_e",
+        "members": [
+          "scott_e",
+          "alex_sadowski",
+          "katie_ochieano",
+          "eduard_lataretu",
+          "guy_alster"
+        ]
+      }
+    ],
+    "resources": [
+      {
+        "id": "product-brief",
+        "title": "Project Phoenix - Product Brief",
+        "system": "Google Docs",
+        "icon": "gdocs",
+        "owner": "scott_e",
+        "project": "phoenix",
+        "sensitivity": "internal",
+        "resource_type": "product_doc",
+        "intent_role": "reference",
+        "keywords": [
+          "product",
+          "brief",
+          "phoenix",
+          "progress",
+          "context",
+          "spec",
+          "requirements"
+        ],
+        "default_permission": "viewer",
+        "current_access": [
+          {
+            "person": "scott_e",
+            "level": "owner"
+          }
+        ],
+        "category": "spec",
+        "summary": "What Project Phoenix is, for whom, and the success criteria."
+      },
+      {
+        "id": "q2-roadmap-milestones",
+        "title": "Q2 Roadmap & Milestones",
+        "system": "Google Docs",
+        "icon": "gdocs",
+        "owner": "alex_sadowski",
+        "project": "phoenix",
+        "sensitivity": "internal",
+        "resource_type": "product_doc",
+        "intent_role": "work_surface",
+        "keywords": [
+          "roadmap",
+          "milestone",
+          "progress",
+          "schedule",
+          "q2",
+          "timeline",
+          "status",
+          "plan"
+        ],
+        "default_permission": "editor",
+        "current_access": [
+          {
+            "person": "alex_sadowski",
+            "level": "owner"
+          }
+        ],
+        "category": "spec",
+        "summary": "Q2 delivery plan: dates, owners, and progress status per milestone."
+      },
+      {
+        "id": "prod-1327",
+        "title": "PROD-1327: Fix onboarding flow issue",
+        "system": "Jira",
+        "icon": "jira",
+        "owner": "katie_ochieano",
+        "project": "phoenix",
+        "sensitivity": "internal",
+        "resource_type": "issue_tracker",
+        "intent_role": "work_surface",
+        "keywords": [
+          "issue",
+          "bug",
+          "onboarding",
+          "task",
+          "tracker",
+          "sprint",
+          "blocker",
+          "progress",
+          "fix"
+        ],
+        "default_permission": "contributor",
+        "current_access": [
+          {
+            "person": "katie_ochieano",
+            "level": "owner"
+          }
+        ],
+        "category": "task",
+        "summary": "Bug blocking the Phoenix launch: onboarding flow drops users at step 3."
+      },
+      {
+        "id": "onboarding-flow-v2",
+        "title": "Onboarding Flow - v2 Design",
+        "system": "Figma",
+        "icon": "figma",
+        "owner": "eduard_lataretu",
+        "project": "phoenix",
+        "sensitivity": "internal",
+        "resource_type": "product_doc",
+        "intent_role": "reference",
+        "keywords": [
+          "onboarding",
+          "flow",
+          "design",
+          "ux",
+          "ui",
+          "figma",
+          "mockup"
+        ],
+        "default_permission": "viewer",
+        "current_access": [
+          {
+            "person": "eduard_lataretu",
+            "level": "owner"
+          }
+        ],
+        "category": "design",
+        "summary": "Redesigned onboarding UX, v2 — screens and interaction states."
+      },
+      {
+        "id": "channel-product-dev",
+        "title": "#product-dev",
+        "system": "Microsoft Teams",
+        "icon": "teams",
+        "owner": "guy_alster",
+        "project": "phoenix",
+        "sensitivity": "internal",
+        "resource_type": "channel",
+        "intent_role": "reference",
+        "keywords": [
+          "channel",
+          "discussion",
+          "dev",
+          "product",
+          "team",
+          "chat"
+        ],
+        "default_permission": "member",
+        "current_access": [
+          {
+            "person": "guy_alster",
+            "level": "owner"
+          }
+        ],
+        "category": "channel",
+        "summary": "Day-to-day Phoenix development discussion."
+      },
+      {
+        "id": "customer-accounts-sfdc",
+        "title": "Customer Accounts",
+        "system": "Salesforce",
+        "icon": "salesforce",
+        "owner": "scott_e",
+        "project": "sales",
+        "sensitivity": "confidential",
+        "resource_type": "customer_data",
+        "intent_role": "reference",
+        "keywords": [
+          "customer",
+          "account",
+          "revenue",
+          "crm",
+          "pipeline",
+          "deal"
+        ],
+        "default_permission": "viewer",
+        "current_access": [
+          {
+            "person": "scott_e",
+            "level": "owner"
+          }
+        ],
+        "category": "customer-data",
+        "summary": "Customer, revenue and pipeline records (confidential)."
+      }
+    ],
+    "policies": [
+      {
+        "resource_type": "product_doc",
+        "description": "Internal product documents (Docs, Sheets, Figma).",
+        "read_intent_permission": "viewer",
+        "write_intent_permission": "editor",
+        "max_duration": "7 days",
+        "approval_required": true,
+        "approver_rule": "resource_owner"
+      },
+      {
+        "resource_type": "issue_tracker",
+        "description": "Issue / sprint trackers such as Jira and Linear.",
+        "read_intent_permission": "viewer",
+        "write_intent_permission": "contributor",
+        "max_duration": "14 days",
+        "approval_required": true,
+        "approver_rule": "resource_owner"
+      },
+      {
+        "resource_type": "channel",
+        "description": "Team chat channels (Slack, Teams). Low risk, self-serve.",
+        "read_intent_permission": "member",
+        "write_intent_permission": "member",
+        "max_duration": "none",
+        "approval_required": false,
+        "approver_rule": "resource_owner"
+      },
+      {
+        "resource_type": "code_repo",
+        "description": "Source code repositories (GitHub, GitLab).",
+        "read_intent_permission": "read",
+        "write_intent_permission": "write",
+        "max_duration": "30 days",
+        "approval_required": true,
+        "approver_rule": "resource_owner"
+      },
+      {
+        "resource_type": "customer_data",
+        "description": "Confidential customer / revenue data (Salesforce, HubSpot). Highest bar: manager approval, short duration, never auto-bundled into a grant.",
+        "read_intent_permission": "viewer",
+        "write_intent_permission": "viewer",
+        "max_duration": "3 days",
+        "approval_required": true,
+        "approver_rule": "assignee_manager",
+        "never_auto_grant": true
+      }
+    ]
+  },
+  "access_package": {
+    "skill": "task_access_assistant",
+    "task": {
+      "assignee": "Guy Alster",
+      "assignee_email": "guy.alster@stripe-com.demo",
+      "project": "Project Phoenix",
+      "intent": "continue_progress"
+    },
+    "summary": {
+      "resources_found": 5,
+      "missing": 4,
+      "already_has": 1,
+      "blocked": 0
+    },
+    "required_access": [
+      {
+        "resource": "Project Phoenix - Product Brief",
+        "resource_id": "product-brief",
+        "system": "Google Docs",
+        "icon": "gdocs",
+        "owner": "Scott E.",
+        "owner_email": "scott.e@stripe-com.demo",
+        "status": "missing",
+        "current_permission": null,
+        "recommended_permission": "viewer",
+        "duration": "7 days",
+        "approval_required": true,
+        "approver": "Scott E.",
+        "approver_email": "scott.e@stripe-com.demo",
+        "reason": "Needed to read (reference) for Project Phoenix work: \"Project Phoenix - Product Brief\" (Google Docs).",
+        "request_message": "Hi Scott, Guy Alster needs Viewer access to \"Project Phoenix - Product Brief\" (Google Docs) for 7 days to help with continuing the product progress. Approve?"
+      },
+      {
+        "resource": "Q2 Roadmap & Milestones",
+        "resource_id": "q2-roadmap-milestones",
+        "system": "Google Docs",
+        "icon": "gdocs",
+        "owner": "Alex Sadowski",
+        "owner_email": "alex.sadowski@stripe-com.demo",
+        "status": "missing",
+        "current_permission": null,
+        "recommended_permission": "editor",
+        "duration": "7 days",
+        "approval_required": true,
+        "approver": "Alex Sadowski",
+        "approver_email": "alex.sadowski@stripe-com.demo",
+        "reason": "Needed to update for Project Phoenix work: \"Q2 Roadmap & Milestones\" (Google Docs).",
+        "request_message": "Hi Alex, Guy Alster needs Editor access to \"Q2 Roadmap & Milestones\" (Google Docs) for 7 days to help with continuing the product progress. Approve?"
+      },
+      {
+        "resource": "PROD-1327: Fix onboarding flow issue",
+        "resource_id": "prod-1327",
+        "system": "Jira",
+        "icon": "jira",
+        "owner": "Katie Ochieano",
+        "owner_email": "katie.ochieano@stripe-com.demo",
+        "status": "missing",
+        "current_permission": null,
+        "recommended_permission": "contributor",
+        "duration": "14 days",
+        "approval_required": true,
+        "approver": "Katie Ochieano",
+        "approver_email": "katie.ochieano@stripe-com.demo",
+        "reason": "Needed to update for Project Phoenix work: \"PROD-1327: Fix onboarding flow issue\" (Jira).",
+        "request_message": "Hi Katie, Guy Alster needs Contributor access to \"PROD-1327: Fix onboarding flow issue\" (Jira) for 14 days to help with continuing the product progress. Approve?"
+      },
+      {
+        "resource": "#product-dev",
+        "resource_id": "channel-product-dev",
+        "system": "Microsoft Teams",
+        "icon": "teams",
+        "owner": "Guy Alster",
+        "owner_email": "guy.alster@stripe-com.demo",
+        "status": "has_access",
+        "current_permission": "owner",
+        "recommended_permission": "owner",
+        "duration": "none",
+        "approval_required": false,
+        "approver": null,
+        "approver_email": null,
+        "reason": "Needed to read (reference) for Project Phoenix work: \"#product-dev\" (Microsoft Teams)."
+      },
+      {
+        "resource": "Onboarding Flow - v2 Design",
+        "resource_id": "onboarding-flow-v2",
+        "system": "Figma",
+        "icon": "figma",
+        "owner": "Eduard Lataretu",
+        "owner_email": "eduard.lataretu@stripe-com.demo",
+        "status": "missing",
+        "current_permission": null,
+        "recommended_permission": "viewer",
+        "duration": "7 days",
+        "approval_required": true,
+        "approver": "Eduard Lataretu",
+        "approver_email": "eduard.lataretu@stripe-com.demo",
+        "reason": "Needed to read (reference) for Project Phoenix work: \"Onboarding Flow - v2 Design\" (Figma).",
+        "request_message": "Hi Eduard, Guy Alster needs Viewer access to \"Onboarding Flow - v2 Design\" (Figma) for 7 days to help with continuing the product progress. Approve?"
+      }
+    ],
+    "next_action": "prepare_access_request"
+  }
+}

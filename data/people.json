@@ -1,0 +1,75 @@
+{
+  "$comment": "AccessGraph company knowledge — people. Owner: Person 3.",
+  "people": [
+    {
+      "id": "shota_gushima",
+      "name": "Shota Gushima",
+      "handle": "shota_gushima",
+      "role": "Product Owner",
+      "email": "shota.gushima@northwind.ai",
+      "department": "Product",
+      "manager": "jiayi_li"
+    },
+    {
+      "id": "rei_kawaji",
+      "name": "Rei Kawaji",
+      "handle": "Rei_Kawaji",
+      "role": "Product Associate",
+      "email": "rei.kawaji@northwind.ai",
+      "department": "Product",
+      "manager": "shota_gushima"
+    },
+    {
+      "id": "jiayi_li",
+      "name": "Jiayi Li (Allison)",
+      "handle": "jiayi_li",
+      "role": "Head of Product",
+      "email": "jiayi.li@northwind.ai",
+      "department": "Product",
+      "manager": null
+    },
+    {
+      "id": "koichi_ikeno",
+      "name": "Koichi Ikeno",
+      "handle": "koichi_ikeno",
+      "role": "Design Lead",
+      "email": "koichi.ikeno@northwind.ai",
+      "department": "Design",
+      "manager": "jiayi_li"
+    },
+    {
+      "id": "mitsuhiro_suzuki",
+      "name": "Mitsuhiro Suzuki",
+      "handle": "mitsuhiro_suzuki",
+      "role": "Engineering Lead",
+      "email": "mitsuhiro.suzuki@northwind.ai",
+      "department": "Engineering",
+      "manager": "jiayi_li"
+    },
+    {
+      "id": "ayumu_kobayashi",
+      "name": "Ayumu Kobayashi",
+      "handle": "ayumu_kobayashi",
+      "role": "Sales Lead",
+      "email": "ayumu.kobayashi@northwind.ai",
+      "department": "Sales",
+      "manager": "jiayi_li"
+    }
+  ],
+  "projects": [
+    {
+      "id": "phoenix",
+      "name": "Project Phoenix",
+      "aliases": ["product", "プロダクト", "phoenix", "フェニックス"],
+      "lead": "jiayi_li",
+      "members": ["shota_gushima", "rei_kawaji", "jiayi_li", "koichi_ikeno", "mitsuhiro_suzuki"]
+    },
+    {
+      "id": "sales",
+      "name": "Sales / GTM",
+      "aliases": ["sales", "営業", "gtm"],
+      "lead": "ayumu_kobayashi",
+      "members": ["ayumu_kobayashi", "jiayi_li"]
+    }
+  ]
+}

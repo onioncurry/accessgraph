@@ -1,0 +1,19 @@
+{
+  "name": "accessgraph",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AccessGraph — a GStack skill that uses G-Brain to turn a Slack/Teams task into a minimum access package for humans and AI agents.",
+  "type": "module",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "demo": "node scripts/query.ts",
+    "demo:json": "node scripts/query.ts --json",
+    "demo:review": "node scripts/query.ts --example review-only",
+    "demo:blocked": "node scripts/query.ts --example confidential-blocked",
+    "seed:gbrain": "node scripts/seed_gbrain.ts",
+    "demo:crustdata": "node scripts/crustdata_demo.ts",
+    "test": "node scripts/stress_test.ts"
+  }
+}

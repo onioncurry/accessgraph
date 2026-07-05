@@ -1,0 +1,58 @@
+{
+  "$comment": "Golden task examples for Person 2's parser and the demo. 'hero' is the exact message in the demo UI mock. expected_parse is the contract input to resolveAccess(); expected_summary is what the resolver must return against the seed data.",
+  "examples": [
+    {
+      "id": "hero",
+      "channel": "dm",
+      "from": "shota_gushima",
+      "to": "rei_kawaji",
+      "text": "プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？",
+      "text_en": "Product progress is stuck — can I ask you to take over this task?",
+      "expected_parse": {
+        "assignee": "rei_kawaji",
+        "project": "phoenix",
+        "intent": "continue_progress",
+        "keywords": ["product", "progress"],
+        "raw_text": "プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？"
+      },
+      "expected_summary": { "resources_found": 5, "missing": 5, "already_has": 0, "blocked": 0 },
+      "expected_permissions": {
+        "product-brief": "viewer",
+        "q2-roadmap-milestones": "editor",
+        "prod-1327": "contributor",
+        "onboarding-flow-v2": "viewer",
+        "channel-product-dev": "member"
+      }
+    },
+    {
+      "id": "review-only",
+      "channel": "dm",
+      "from": "jiayi_li",
+      "to": "rei_kawaji",
+      "text": "Rei, can you review where Project Phoenix stands before Thursday?",
+      "expected_parse": {
+        "assignee": "rei_kawaji",
+        "project": "phoenix",
+        "intent": "review",
+        "raw_text": "Rei, can you review where Project Phoenix stands before Thursday?"
+      },
+      "expected_summary": { "resources_found": 5, "missing": 5, "already_has": 0, "blocked": 0 },
+      "expected_permissions_note": "read intent -> everything viewer/member, nothing over-granted"
+    },
+    {
+      "id": "confidential-blocked",
+      "channel": "dm",
+      "from": "shota_gushima",
+      "to": "rei_kawaji",
+      "text": "Rei please pull the customer revenue numbers from the CRM for the phoenix report",
+      "expected_parse": {
+        "assignee": "rei_kawaji",
+        "project": "phoenix",
+        "intent": "read",
+        "keywords": ["customer", "revenue", "crm"],
+        "raw_text": "Rei please pull the customer revenue numbers from the CRM for the phoenix report"
+      },
+      "expected_behavior": "Customer Accounts (Salesforce) appears with status=blocked — confidential data is surfaced but never auto-bundled; approver is Rei's manager, not the resource owner."
+    }
+  ]
+}

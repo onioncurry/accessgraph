@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "person/shota_gushima",
+    "file": "gbrain_pages/shota_gushima.md"
+  },
+  {
+    "slug": "person/rei_kawaji",
+    "file": "gbrain_pages/rei_kawaji.md"
+  },
+  {
+    "slug": "person/jiayi_li",
+    "file": "gbrain_pages/jiayi_li.md"
+  },
+  {
+    "slug": "person/koichi_ikeno",
+    "file": "gbrain_pages/koichi_ikeno.md"
+  },
+  {
+    "slug": "person/mitsuhiro_suzuki",
+    "file": "gbrain_pages/mitsuhiro_suzuki.md"
+  },
+  {
+    "slug": "person/ayumu_kobayashi",
+    "file": "gbrain_pages/ayumu_kobayashi.md"
+  },
+  {
+    "slug": "resource/product-brief",
+    "file": "gbrain_pages/product-brief.md"
+  },
+  {
+    "slug": "resource/q2-roadmap-milestones",
+    "file": "gbrain_pages/q2-roadmap-milestones.md"
+  },
+  {
+    "slug": "resource/prod-1327",
+    "file": "gbrain_pages/prod-1327.md"
+  },
+  {
+    "slug": "resource/onboarding-flow-v2",
+    "file": "gbrain_pages/onboarding-flow-v2.md"
+  },
+  {
+    "slug": "resource/channel-product-dev",
+    "file": "gbrain_pages/channel-product-dev.md"
+  },
+  {
+    "slug": "resource/customer-accounts-sfdc",
+    "file": "gbrain_pages/customer-accounts-sfdc.md"
+  },
+  {
+    "slug": "category/spec",
+    "file": "gbrain_pages/category-spec.md"
+  },
+  {
+    "slug": "category/task",
+    "file": "gbrain_pages/category-task.md"
+  },
+  {
+    "slug": "category/design",
+    "file": "gbrain_pages/category-design.md"
+  },
+  {
+    "slug": "category/channel",
+    "file": "gbrain_pages/category-channel.md"
+  },
+  {
+    "slug": "category/customer-data",
+    "file": "gbrain_pages/category-customer-data.md"
+  },
+  {
+    "slug": "policy/product_doc",
+    "file": "gbrain_pages/policy-product_doc.md"
+  },
+  {
+    "slug": "policy/issue_tracker",
+    "file": "gbrain_pages/policy-issue_tracker.md"
+  },
+  {
+    "slug": "policy/channel",
+    "file": "gbrain_pages/policy-channel.md"
+  },
+  {
+    "slug": "policy/code_repo",
+    "file": "gbrain_pages/policy-code_repo.md"
+  },
+  {
+    "slug": "policy/customer_data",
+    "file": "gbrain_pages/policy-customer_data.md"
+  },
+  {
+    "slug": "task/task-q1-progress-push",
+    "file": "gbrain_pages/task-task-q1-progress-push.md"
+  },
+  {
+    "slug": "task/task-onboarding-bug-triage",
+    "file": "gbrain_pages/task-task-onboarding-bug-triage.md"
+  },
+  {
+    "slug": "task/task-q2-revenue-report",
+    "file": "gbrain_pages/task-task-q2-revenue-report.md"
+  },
+  {
+    "slug": "task/task-onboarding-design-review",
+    "file": "gbrain_pages/task-task-onboarding-design-review.md"
+  },
+  {
+    "slug": "policy/access-decision-rules",
+    "file": "gbrain_pages/access-decision-rules.md"
+  }
+]

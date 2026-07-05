@@ -1,0 +1,208 @@
+{
+  "$comment": "AccessGraph company knowledge — resources, ownership, and CURRENT access state. Owner: Person 3. The 5 phoenix resources match the demo UI ('Auto-share for this task' panel). Rei is missing all 5 -> 'Share all (5)'.",
+  "resources": [
+    {
+      "id": "product-brief",
+      "title": "Project Phoenix - Product Brief",
+      "system": "Google Docs",
+      "icon": "gdocs",
+      "owner": "shota_gushima",
+      "project": "phoenix",
+      "sensitivity": "internal",
+      "resource_type": "product_doc",
+      "intent_role": "reference",
+      "keywords": [
+        "product",
+        "brief",
+        "phoenix",
+        "progress",
+        "context",
+        "spec",
+        "requirements"
+      ],
+      "default_permission": "viewer",
+      "current_access": [
+        {
+          "person": "shota_gushima",
+          "level": "owner"
+        },
+        {
+          "person": "jiayi_li",
+          "level": "editor"
+        }
+      ],
+      "category": "spec",
+      "summary": "What Project Phoenix is, for whom, and the success criteria."
+    },
+    {
+      "id": "q2-roadmap-milestones",
+      "title": "Q2 Roadmap & Milestones",
+      "system": "Google Docs",
+      "icon": "gdocs",
+      "owner": "jiayi_li",
+      "project": "phoenix",
+      "sensitivity": "internal",
+      "resource_type": "product_doc",
+      "intent_role": "work_surface",
+      "keywords": [
+        "roadmap",
+        "milestone",
+        "progress",
+        "schedule",
+        "q2",
+        "timeline",
+        "status",
+        "plan"
+      ],
+      "default_permission": "editor",
+      "current_access": [
+        {
+          "person": "jiayi_li",
+          "level": "owner"
+        },
+        {
+          "person": "shota_gushima",
+          "level": "editor"
+        }
+      ],
+      "category": "spec",
+      "summary": "Q2 delivery plan: dates, owners, and progress status per milestone."
+    },
+    {
+      "id": "prod-1327",
+      "title": "PROD-1327: Fix onboarding flow issue",
+      "system": "Jira",
+      "icon": "jira",
+      "owner": "mitsuhiro_suzuki",
+      "project": "phoenix",
+      "sensitivity": "internal",
+      "resource_type": "issue_tracker",
+      "intent_role": "work_surface",
+      "keywords": [
+        "issue",
+        "bug",
+        "onboarding",
+        "task",
+        "tracker",
+        "sprint",
+        "blocker",
+        "progress",
+        "fix"
+      ],
+      "default_permission": "contributor",
+      "current_access": [
+        {
+          "person": "mitsuhiro_suzuki",
+          "level": "owner"
+        },
+        {
+          "person": "shota_gushima",
+          "level": "contributor"
+        }
+      ],
+      "category": "task",
+      "summary": "Bug blocking the Phoenix launch: onboarding flow drops users at step 3."
+    },
+    {
+      "id": "onboarding-flow-v2",
+      "title": "Onboarding Flow - v2 Design",
+      "system": "Figma",
+      "icon": "figma",
+      "owner": "koichi_ikeno",
+      "project": "phoenix",
+      "sensitivity": "internal",
+      "resource_type": "product_doc",
+      "intent_role": "reference",
+      "keywords": [
+        "onboarding",
+        "flow",
+        "design",
+        "ux",
+        "ui",
+        "figma",
+        "mockup"
+      ],
+      "default_permission": "viewer",
+      "current_access": [
+        {
+          "person": "koichi_ikeno",
+          "level": "owner"
+        },
+        {
+          "person": "shota_gushima",
+          "level": "viewer"
+        }
+      ],
+      "category": "design",
+      "summary": "Redesigned onboarding UX, v2 — screens and interaction states."
+    },
+    {
+      "id": "channel-product-dev",
+      "title": "#product-dev",
+      "system": "Microsoft Teams",
+      "icon": "teams",
+      "owner": "shota_gushima",
+      "project": "phoenix",
+      "sensitivity": "internal",
+      "resource_type": "channel",
+      "intent_role": "reference",
+      "keywords": [
+        "channel",
+        "discussion",
+        "dev",
+        "product",
+        "team",
+        "chat"
+      ],
+      "default_permission": "member",
+      "current_access": [
+        {
+          "person": "shota_gushima",
+          "level": "member"
+        },
+        {
+          "person": "jiayi_li",
+          "level": "member"
+        },
+        {
+          "person": "mitsuhiro_suzuki",
+          "level": "member"
+        }
+      ],
+      "category": "channel",
+      "summary": "Day-to-day Phoenix development discussion."
+    },
+    {
+      "id": "customer-accounts-sfdc",
+      "title": "Customer Accounts",
+      "system": "Salesforce",
+      "icon": "salesforce",
+      "owner": "ayumu_kobayashi",
+      "project": "sales",
+      "sensitivity": "confidential",
+      "resource_type": "customer_data",
+      "intent_role": "reference",
+      "keywords": [
+        "customer",
+        "account",
+        "revenue",
+        "crm",
+        "pipeline",
+        "deal"
+      ],
+      "default_permission": "viewer",
+      "current_access": [
+        {
+          "person": "ayumu_kobayashi",
+          "level": "owner"
+        },
+        {
+          "person": "jiayi_li",
+          "level": "viewer"
+        }
+      ],
+      "category": "customer-data",
+      "summary": "Customer, revenue and pipeline records (confidential)."
+    }
+  ]
+}

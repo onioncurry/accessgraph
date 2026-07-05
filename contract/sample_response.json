@@ -1,0 +1,103 @@
+{
+  "skill": "task_access_assistant",
+  "task": {
+    "assignee": "Rei Kawaji",
+    "assignee_email": "rei.kawaji@northwind.ai",
+    "project": "Project Phoenix",
+    "intent": "continue_progress"
+  },
+  "summary": {
+    "resources_found": 5,
+    "missing": 5,
+    "already_has": 0,
+    "blocked": 0
+  },
+  "required_access": [
+    {
+      "resource": "Project Phoenix - Product Brief",
+      "resource_id": "product-brief",
+      "system": "Google Docs",
+      "icon": "gdocs",
+      "owner": "Shota Gushima",
+      "owner_email": "shota.gushima@northwind.ai",
+      "status": "missing",
+      "current_permission": null,
+      "recommended_permission": "viewer",
+      "duration": "7 days",
+      "approval_required": true,
+      "approver": "Shota Gushima",
+      "approver_email": "shota.gushima@northwind.ai",
+      "reason": "Needed to read (reference) for Project Phoenix work: \"Project Phoenix - Product Brief\" (Google Docs).",
+      "request_message": "Hi Shota, Rei Kawaji needs Viewer access to \"Project Phoenix - Product Brief\" (Google Docs) for 7 days to help with continuing the product progress. Approve?"
+    },
+    {
+      "resource": "Q2 Roadmap & Milestones",
+      "resource_id": "q2-roadmap-milestones",
+      "system": "Google Docs",
+      "icon": "gdocs",
+      "owner": "Jiayi Li (Allison)",
+      "owner_email": "jiayi.li@northwind.ai",
+      "status": "missing",
+      "current_permission": null,
+      "recommended_permission": "editor",
+      "duration": "7 days",
+      "approval_required": true,
+      "approver": "Jiayi Li (Allison)",
+      "approver_email": "jiayi.li@northwind.ai",
+      "reason": "Needed to update for Project Phoenix work: \"Q2 Roadmap & Milestones\" (Google Docs).",
+      "request_message": "Hi Jiayi, Rei Kawaji needs Editor access to \"Q2 Roadmap & Milestones\" (Google Docs) for 7 days to help with continuing the product progress. Approve?"
+    },
+    {
+      "resource": "PROD-1327: Fix onboarding flow issue",
+      "resource_id": "prod-1327",
+      "system": "Jira",
+      "icon": "jira",
+      "owner": "Mitsuhiro Suzuki",
+      "owner_email": "mitsuhiro.suzuki@northwind.ai",
+      "status": "missing",
+      "current_permission": null,
+      "recommended_permission": "contributor",
+      "duration": "14 days",
+      "approval_required": true,
+      "approver": "Mitsuhiro Suzuki",
+      "approver_email": "mitsuhiro.suzuki@northwind.ai",
+      "reason": "Needed to update for Project Phoenix work: \"PROD-1327: Fix onboarding flow issue\" (Jira).",
+      "request_message": "Hi Mitsuhiro, Rei Kawaji needs Contributor access to \"PROD-1327: Fix onboarding flow issue\" (Jira) for 14 days to help with continuing the product progress. Approve?"
+    },
+    {
+      "resource": "#product-dev",
+      "resource_id": "channel-product-dev",
+      "system": "Microsoft Teams",
+      "icon": "teams",
+      "owner": "Shota Gushima",
+      "owner_email": "shota.gushima@northwind.ai",
+      "status": "missing",
+      "current_permission": null,
+      "recommended_permission": "member",
+      "duration": "none",
+      "approval_required": false,
+      "approver": "Shota Gushima",
+      "approver_email": "shota.gushima@northwind.ai",
+      "reason": "Needed to read (reference) for Project Phoenix work: \"#product-dev\" (Microsoft Teams).",
+      "request_message": "Hi Shota, Rei Kawaji needs Member access to \"#product-dev\" (Microsoft Teams) to help with continuing the product progress. Approve?"
+    },
+    {
+      "resource": "Onboarding Flow - v2 Design",
+      "resource_id": "onboarding-flow-v2",
+      "system": "Figma",
+      "icon": "figma",
+      "owner": "Koichi Ikeno",
+      "owner_email": "koichi.ikeno@northwind.ai",
+      "status": "missing",
+      "current_permission": null,
+      "recommended_permission": "viewer",
+      "duration": "7 days",
+      "approval_required": true,
+      "approver": "Koichi Ikeno",
+      "approver_email": "koichi.ikeno@northwind.ai",
+      "reason": "Needed to read (reference) for Project Phoenix work: \"Onboarding Flow - v2 Design\" (Figma).",
+      "request_message": "Hi Koichi, Rei Kawaji needs Viewer access to \"Onboarding Flow - v2 Design\" (Figma) for 7 days to help with continuing the product progress. Approve?"
+    }
+  ],
+  "next_action": "prepare_access_request"
+}

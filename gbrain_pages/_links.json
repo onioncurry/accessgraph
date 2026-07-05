@@ -1,0 +1,330 @@
+[
+  {
+    "from": "person/shota_gushima",
+    "to": "person/jiayi_li",
+    "link_type": "reports_to"
+  },
+  {
+    "from": "person/rei_kawaji",
+    "to": "person/shota_gushima",
+    "link_type": "reports_to"
+  },
+  {
+    "from": "person/koichi_ikeno",
+    "to": "person/jiayi_li",
+    "link_type": "reports_to"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "person/jiayi_li",
+    "link_type": "reports_to"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "person/jiayi_li",
+    "link_type": "reports_to"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/product-brief",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/product-brief",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/product-brief",
+    "to": "category/spec",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/product-brief",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/product-brief",
+    "link_type": "has_access",
+    "context": "editor"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/q2-roadmap-milestones",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/q2-roadmap-milestones",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/q2-roadmap-milestones",
+    "to": "category/spec",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/q2-roadmap-milestones",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/q2-roadmap-milestones",
+    "link_type": "has_access",
+    "context": "editor"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "resource/prod-1327",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/prod-1327",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/prod-1327",
+    "to": "category/task",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "resource/prod-1327",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/prod-1327",
+    "link_type": "has_access",
+    "context": "contributor"
+  },
+  {
+    "from": "person/koichi_ikeno",
+    "to": "resource/onboarding-flow-v2",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/onboarding-flow-v2",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/onboarding-flow-v2",
+    "to": "category/design",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/koichi_ikeno",
+    "to": "resource/onboarding-flow-v2",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/onboarding-flow-v2",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/channel-product-dev",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/channel-product-dev",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/channel-product-dev",
+    "to": "category/channel",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/shota_gushima",
+    "to": "resource/channel-product-dev",
+    "link_type": "has_access",
+    "context": "member"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/channel-product-dev",
+    "link_type": "has_access",
+    "context": "member"
+  },
+  {
+    "from": "person/mitsuhiro_suzuki",
+    "to": "resource/channel-product-dev",
+    "link_type": "has_access",
+    "context": "member"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/customer-accounts-sfdc",
+    "link_type": "owns"
+  },
+  {
+    "from": "resource/customer-accounts-sfdc",
+    "to": "project/sales",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "resource/customer-accounts-sfdc",
+    "to": "category/customer-data",
+    "link_type": "categorized_as"
+  },
+  {
+    "from": "person/ayumu_kobayashi",
+    "to": "resource/customer-accounts-sfdc",
+    "link_type": "has_access",
+    "context": "owner"
+  },
+  {
+    "from": "person/jiayi_li",
+    "to": "resource/customer-accounts-sfdc",
+    "link_type": "has_access",
+    "context": "viewer"
+  },
+  {
+    "from": "resource/product-brief",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/q2-roadmap-milestones",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/onboarding-flow-v2",
+    "to": "policy/product_doc",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/prod-1327",
+    "to": "policy/issue_tracker",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/channel-product-dev",
+    "to": "policy/channel",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "resource/customer-accounts-sfdc",
+    "to": "policy/customer_data",
+    "link_type": "governed_by"
+  },
+  {
+    "from": "task/task-q1-progress-push",
+    "to": "person/shota_gushima",
+    "link_type": "assigned_to"
+  },
+  {
+    "from": "task/task-q1-progress-push",
+    "to": "person/jiayi_li",
+    "link_type": "requested_by"
+  },
+  {
+    "from": "task/task-q1-progress-push",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "task/task-q1-progress-push",
+    "to": "resource/q2-roadmap-milestones",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-q1-progress-push",
+    "to": "resource/product-brief",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-q1-progress-push",
+    "to": "resource/channel-product-dev",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-onboarding-bug-triage",
+    "to": "person/mitsuhiro_suzuki",
+    "link_type": "assigned_to"
+  },
+  {
+    "from": "task/task-onboarding-bug-triage",
+    "to": "person/shota_gushima",
+    "link_type": "requested_by"
+  },
+  {
+    "from": "task/task-onboarding-bug-triage",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "task/task-onboarding-bug-triage",
+    "to": "resource/prod-1327",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-onboarding-bug-triage",
+    "to": "resource/onboarding-flow-v2",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-onboarding-bug-triage",
+    "to": "resource/channel-product-dev",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-q2-revenue-report",
+    "to": "person/ayumu_kobayashi",
+    "link_type": "assigned_to"
+  },
+  {
+    "from": "task/task-q2-revenue-report",
+    "to": "person/jiayi_li",
+    "link_type": "requested_by"
+  },
+  {
+    "from": "task/task-q2-revenue-report",
+    "to": "project/sales",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "task/task-q2-revenue-report",
+    "to": "resource/customer-accounts-sfdc",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-onboarding-design-review",
+    "to": "person/koichi_ikeno",
+    "link_type": "assigned_to"
+  },
+  {
+    "from": "task/task-onboarding-design-review",
+    "to": "person/shota_gushima",
+    "link_type": "requested_by"
+  },
+  {
+    "from": "task/task-onboarding-design-review",
+    "to": "project/phoenix",
+    "link_type": "belongs_to"
+  },
+  {
+    "from": "task/task-onboarding-design-review",
+    "to": "resource/onboarding-flow-v2",
+    "link_type": "used_resource"
+  },
+  {
+    "from": "task/task-onboarding-design-review",
+    "to": "resource/product-brief",
+    "link_type": "used_resource"
+  }
+]

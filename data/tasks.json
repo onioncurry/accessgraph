@@ -1,0 +1,49 @@
+{
+  "$comment": "Past tasks and the resources they ACTUALLY used (rough linkage is fine — it only boosts discovery, never grants). This is the learning loop: the brain remembers what similar work needed.",
+  "tasks": [
+    {
+      "id": "task-q1-progress-push",
+      "title": "Q1 product progress push",
+      "raw_text": "Shota, can you drive the Q1 product progress before the review?",
+      "requester": "jiayi_li",
+      "assignee": "shota_gushima",
+      "project": "phoenix",
+      "intent": "continue_progress",
+      "status": "done",
+      "resources_used": ["q2-roadmap-milestones", "product-brief", "channel-product-dev"]
+    },
+    {
+      "id": "task-onboarding-bug-triage",
+      "title": "Onboarding drop-off bug triage",
+      "raw_text": "Users drop at step 3 of onboarding — investigate and fix.",
+      "requester": "shota_gushima",
+      "assignee": "mitsuhiro_suzuki",
+      "project": "phoenix",
+      "intent": "investigate",
+      "status": "done",
+      "resources_used": ["prod-1327", "onboarding-flow-v2", "channel-product-dev"]
+    },
+    {
+      "id": "task-q2-revenue-report",
+      "title": "Q2 quarterly revenue report",
+      "raw_text": "Prepare the quarterly revenue report for the board.",
+      "requester": "jiayi_li",
+      "assignee": "ayumu_kobayashi",
+      "project": "sales",
+      "intent": "update",
+      "status": "done",
+      "resources_used": ["customer-accounts-sfdc"]
+    },
+    {
+      "id": "task-onboarding-design-review",
+      "title": "Onboarding v2 design review",
+      "raw_text": "Review the v2 onboarding design against the brief.",
+      "requester": "shota_gushima",
+      "assignee": "koichi_ikeno",
+      "project": "phoenix",
+      "intent": "review",
+      "status": "in_progress",
+      "resources_used": ["onboarding-flow-v2", "product-brief"]
+    }
+  ]
+}

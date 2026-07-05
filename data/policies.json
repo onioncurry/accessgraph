@@ -1,0 +1,51 @@
+{
+  "$comment": "AccessGraph company knowledge — access policies per resource_type. Owner: Person 3. read/write_intent_permission = least-privilege level for the intent; approver_rule resolves who approves; never_auto_grant marks confidential data that is blocked unless the task explicitly justifies it.",
+  "policies": [
+    {
+      "resource_type": "product_doc",
+      "description": "Internal product documents (Docs, Sheets, Figma).",
+      "read_intent_permission": "viewer",
+      "write_intent_permission": "editor",
+      "max_duration": "7 days",
+      "approval_required": true,
+      "approver_rule": "resource_owner"
+    },
+    {
+      "resource_type": "issue_tracker",
+      "description": "Issue / sprint trackers such as Jira and Linear.",
+      "read_intent_permission": "viewer",
+      "write_intent_permission": "contributor",
+      "max_duration": "14 days",
+      "approval_required": true,
+      "approver_rule": "resource_owner"
+    },
+    {
+      "resource_type": "channel",
+      "description": "Team chat channels (Slack, Teams). Low risk, self-serve.",
+      "read_intent_permission": "member",
+      "write_intent_permission": "member",
+      "max_duration": "none",
+      "approval_required": false,
+      "approver_rule": "resource_owner"
+    },
+    {
+      "resource_type": "code_repo",
+      "description": "Source code repositories (GitHub, GitLab).",
+      "read_intent_permission": "read",
+      "write_intent_permission": "write",
+      "max_duration": "30 days",
+      "approval_required": true,
+      "approver_rule": "resource_owner"
+    },
+    {
+      "resource_type": "customer_data",
+      "description": "Confidential customer / revenue data (Salesforce, HubSpot). Highest bar: manager approval, short duration, never auto-bundled into a grant.",
+      "read_intent_permission": "viewer",
+      "write_intent_permission": "viewer",
+      "max_duration": "3 days",
+      "approval_required": true,
+      "approver_rule": "assignee_manager",
+      "never_auto_grant": true
+    }
+  ]
+}

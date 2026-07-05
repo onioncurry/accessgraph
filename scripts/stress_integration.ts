@@ -8,7 +8,7 @@ import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadGraph, resolveAccess } from "../lib/mockAccess.ts";
-import { parseTask } from "../lib/parseTask.ts";
+import { parseTask, isTriggered, stripMention } from "../lib/parseTask.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -34,6 +34,7 @@ section("P2-A PARSER ACCURACY — labeled JA/EN task messages", 25);
     { text: "プロダクトの進捗が行き詰まっててこのタスクお願いしたいんだけど頼めるかな？", dm: "Rei_Kawaji", assignee: "rei_kawaji", intent: "continue_progress", project: "phoenix" },
     { text: "この件をお願いしたいんだけど頼めるかな？ @AccessBot", dm: "Rei_Kawaji", assignee: "rei_kawaji", intent: "continue_progress" }, // ← the P1 demo message
     { text: "Can you help Rei move the product launch forward?", assignee: "rei_kawaji", intent: "continue_progress" },
+    { text: "Can Rei take this task over? Product progress is stuck.", assignee: "rei_kawaji", intent: "continue_progress" }, // 3rd-person handoff (found by real-data run)
     { text: "Rei, can you review where Project Phoenix stands before Thursday?", assignee: "rei_kawaji", intent: "review", project: "phoenix" },
     { text: "レビューお願いします。オンボーディングのデザイン見ておいて。", dm: "koichi_ikeno", assignee: "koichi_ikeno", intent: "review" },
     { text: "PROD-1327のバグ、原因を調査してもらえる？", dm: "mitsuhiro_suzuki", assignee: "mitsuhiro_suzuki", intent: "investigate" },
@@ -58,6 +59,30 @@ section("P2-A PARSER ACCURACY — labeled JA/EN task messages", 25);
       if (c.project) assert(p.project === c.project, `project='${p.project}' want '${c.project}'`);
     });
   }
+}
+
+// ---------------------------------------------------------------------------
+section("P2-M MENTION TRIGGER — bot activates ONLY when mentioned", 10);
+{
+  check("M1 @AccessBot / @AccessGraph / <@U123> all trigger; plain text does NOT", () => {
+    assert(isTriggered("@AccessBot help Rei"), "@AccessBot missed");
+    assert(isTriggered("please @accessgraph this task"), "@accessgraph missed");
+    assert(isTriggered("hey <@U0AGENT123> take a look"), "Slack-style <@id> missed");
+    assert(!isTriggered("Can you take this task over?"), "triggered without mention");
+    assert(!isTriggered("we discussed accessbot yesterday"), "bare word triggered");
+  });
+  check("M2 mention is stripped before parsing (never pollutes assignee/keywords)", () => {
+    const p = parseTask("@AccessBot Can you take this task over?", loadGraph(), { dm_other: "Rei_Kawaji" });
+    assert(p.assignee === "Rei_Kawaji", `assignee=${p.assignee}`);
+    assert(p.intent === "continue_progress", `intent=${p.intent}`);
+    assert(!/accessbot/i.test(p.raw_text || ""), "mention leaked into raw_text");
+    assert(stripMention("<@U123ABC> fix the bug") === "fix the bug", "strip failed");
+  });
+  check("M3 mention-mid-sentence and JA message with mention both parse correctly", () => {
+    const p = parseTask("Reiに @AccessBot プロダクトの進捗を進めてもらいたい", loadGraph());
+    assert(String(p.assignee).toLowerCase().includes("rei"), `assignee=${p.assignee}`);
+    assert(p.intent === "continue_progress" && p.project === "phoenix", `${p.intent}/${p.project}`);
+  });
 }
 
 // ---------------------------------------------------------------------------

@@ -10,6 +10,20 @@
 
 import type { Graph, TaskInput } from "./types.ts";
 
+// --- mention trigger ---------------------------------------------------------
+// The bot activates ONLY when mentioned. Person 1's front door checks
+// isTriggered() first; parseTask() strips the mention so it never pollutes
+// assignee/keyword matching. Accepts @AccessBot / @AccessGraph / <@U123> style.
+export const BOT_MENTION = /(@access(bot|graph)\b|<@[A-Z0-9]+>)/gi;
+
+export function isTriggered(text: string): boolean {
+  return /@access(bot|graph)\b/i.test(text) || /<@[A-Z0-9]+>/.test(text);
+}
+
+export function stripMention(text: string): string {
+  return text.replace(BOT_MENTION, " ").replace(/\s+/g, " ").trim();
+}
+
 // Japanese → graph-keyword mapping (extend freely; keys are substring-matched)
 const JA_KEYWORDS: Record<string, string[]> = {
   "プロダクト": ["product"],
@@ -32,7 +46,7 @@ const INTENT_RULES: Array<[RegExp, TaskInput["intent"]]> = [
   [/(更新|編集|書き換え|仕上げ)/u, "update"],
   [/(レビュー|確認して|見ておいて)/u, "review"],
   [/(調査|調べて|デバッグ|原因)/u, "investigate"],
-  [/\b(continue|move .{0,20}forward|take over|drive|push|keep .{0,10}going)\b/i, "continue_progress"],
+  [/\b(continue|move .{0,20}forward|take over|take (this|the|that|it) .{0,20}over|pick up (this|the)|drive|push|keep .{0,10}going)\b/i, "continue_progress"],
   [/\b(update|edit|finish|complete|fill in)\b/i, "update"],
   [/\b(review|check|look at|look over)\b/i, "review"],
   [/\b(investigate|debug|diagnose|root.?cause)\b/i, "investigate"],
@@ -47,6 +61,7 @@ export function parseTask(
   graph: Graph,
   context: { dm_other?: string } = {}
 ): TaskInput {
+  text = stripMention(text);
   const lower = text.toLowerCase();
 
   // --- assignee: first person whose first name or handle appears in the text;
